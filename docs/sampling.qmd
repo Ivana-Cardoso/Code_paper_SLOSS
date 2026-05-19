@@ -1,0 +1,273 @@
+# The sampling design
+
+To arrive at the sampling design used, we followed the steps below to select the landscapes and sampling points.
+
+## Data preparation before landscapes selection
+
+```{r, output = FALSE}
+rm(list = ls()); gc(); dev.off()
+set.seed(13)
+
+# Load packages
+library(raster)
+library(sf)
+library(terra)
+library(landscapemetrics)
+library(ggplot2)
+library(ggpubr)
+```
+
+I downloaded the land-use cover raster for Brazil in the year 2022 using the [MAPBIOMAS Toolkit](https://brasil.mapbiomas.org/colecoes-mapbiomas/) on the Google Engine. In the Google Engine itself, I selected the area of interest by using a shapefile as a mask. This shapefile is available on my [GitHub](https://github.com/Ivana-Cardoso/SLOSS_Balbina) as 'Balbina.shp' if you wish to crop it as I did. Alternatively, the raster file is also available on my GitHub as 'Balbina_mapbiomas_collection8_2022.tif'.
+
+```{r}
+# Import data
+Balbina <- raster("Balbina_mapbiomas_collection8_2022.tif")
+new_crs <- CRS("+proj=utm +south +zone=21 +datum=WGS84 +units=m +no_defs")
+Balbina <- projectRaster(Balbina, crs=new_crs)
+values(Balbina)  = as.integer(values(Balbina))
+check_landscape(Balbina)
+plot(Balbina)
+```
+
+Below, I (1) create an object only with forest pixels to calculate forest cover and the number of forest patches (habitat), and (2) create a new raster with all land-use types except forest (non-habitat)
+
+The reference code for land-use type and pixel values is [here](https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2023/08/Legenda-Colecao-8-LEGEND-CODE-1.pdf).
+
+```{r}
+# Select only forest pixels 
+forest_formation <- Balbina == 3
+forest_formation <- projectRaster(forest_formation, crs=new_crs)
+values(forest_formation)  = as.integer(values(forest_formation))
+check_landscape(forest_formation)
+plot(forest_formation)
+
+# Select all land-use types except forest
+non_habitat <- Balbina
+non_habitat[!(Balbina != 3)] <- NA
+non_habitat <- projectRaster(non_habitat, crs=new_crs)
+values(non_habitat) <- as.integer(values(non_habitat))
+check_landscape(non_habitat)
+plot(non_habitat)
+```
+
+I covered the entire extent of Balbina with evenly spaced points. From these points, I created 4 km × 4 km landscapes and calculated forest cover and the number of fragments. I used the function [sample_lsm](https://r-spatialecology.github.io/landscapemetrics/reference/sample_lsm.html?q=sample#null) from the *landscapemetrics* package to calculate these metrics. This function allows you to define the size and shape of the landscapes. Because our landscapes are square, the value of the size argument corresponds to half of the side length of the landscape. To calculate forest cover, I used the function [lsm_c_pland](https://r-spatialecology.github.io/landscapemetrics/reference/lsm_c_pland.html?q=lsm_c_pl#ref-usage) inside sample_lsm. To calculate number of forest patches, I used the function [lsm_c_np](https://r-spatialecology.github.io/landscapemetrics/reference/lsm_c_np.html?q=lsm_c_np#ref-usage) inside sample_lsm.
+
+```{r, output=FALSE}
+#| code-overflow: wrap
+# Create a grid of points with a 4km interval
+extent_grid <- as(extent(forest_formation), 'SpatialPolygons')
+proj4string(extent_grid) <- crs(new_crs)
+points <- sp::makegrid(extent_grid, cellsize = 4000)  # Evenly spaced points (4km)
+plot(forest_formation)
+points(points, pch = ".")
+
+# Calculate forest cover in the landscapes
+grid <- st_as_sf(points, coords = c("x1", "x2"), crs = new_crs)
+forest_cover <- landscapemetrics::sample_lsm(forest_formation, y = grid, 
+                                             size = 2000,
+                                             shape = "square",
+                                             what = "lsm_c_pland",
+                                             directions = 8)
+
+forest_cover <- subset(forest_cover, forest_cover$class == 1)  # Select only the presence of forest
+
+# Calculate the number of patches in the landscapes
+number_patches <- landscapemetrics::sample_lsm(forest_formation, y = grid, 
+                                               size = 2000,
+                                               shape = "square",
+                                               what = "lsm_c_np",
+                                               directions = 8)
+
+number_patches <- subset(number_patches, number_patches$class == 1)  # Select only the presence of patches
+
+```
+
+## Landscape selection
+
+Below, I plot forest cover (x-axis) against the number of fragments (y-axis) for each landscape (points).
+
+I pre-selected landscapes with 25 to 50% forest cover because, within these values of forest cover was the greatest range in fragmentation (number of islands).
+
+Within this selection (from 25% to 50% forest cover), I searched for landscapes at the extremes of the number of patches gradient to make clear the characterization of few large patches and several small patches. I checked the distribution of each point on the map and sought to make a broad selection that covered a significant portion of the study area. I discarded side-by-side landscapes, and landscapes that I deemed inaccessible due to safety concerns.
+
+The colored points represent the landscapes that were sampled.
+
+```{r, output=FALSE}
+#| code-overflow: wrap
+# Plot number of patches X forest cover
+number_patches$plot_id == forest_cover$plot_id
+metrics <- as.data.frame(cbind(number_patches$plot_id, number_patches$value,
+                               forest_cover$value))
+colnames(metrics) <- c("id", "number_patches", "forest_cover")
+
+sampled_lands <- read.csv("ants_env.csv")
+sampled_lands <- sampled_lands[,1:3]
+sampled_lands <- unique(sampled_lands)
+sampled_lands <- sampled_lands[-c(21:24),] #removing the landscapes in the continuous forest with ~100% forest cover
+
+sampled_lands$type <- NA
+sampled_lands$type[1:8] <- "#d73027" #landscapes with many small patches
+sampled_lands$type[9:12] <- "#fee090" #landscapes with several medium-sized patches
+sampled_lands$type[13:20] <- "#4575b4" #landscapes with few large patches
+
+NP_FC_plot <- 
+  ggplot(data = metrics,
+         mapping = aes(x = number_patches, y = forest_cover)) +
+  labs(x = "Number of islands",
+       y = "Forest cover (%)") +
+  geom_point(alpha = 0.2, shape = 21, size = 4,
+             fill = "#252525") +
+  geom_point(data = sampled_lands, shape = 21,
+             mapping = aes(x = number_patches, y = forest_cover),
+             color = "#252525", fill = sampled_lands$type,
+             alpha = 0.7, size = 4) +
+  geom_rect(fill = NA, color="#fe9929",alpha=0.5, 
+    mapping=aes(xmin=0, xmax=65, ymin=25,ymax=50)) +
+theme_pubr(base_size = 20)
+
+```
+
+```{r}
+NP_FC_plot
+```
+
+This plot show the relationship between forest cover and number of islands for the 1,080 16-km² landscapes in the entire area of the Balbina Hydroelectric Reservoir. Blue dots - low fragmentation; yellow dots - moderate fragmentation; red dots - high fragmentation.
+
+```{r}
+#| code-overflow: wrap
+#Select landscapes with 25 to 50% forest cover 
+metrics1 = subset(metrics, metrics$forest_cover <= 50 & metrics$forest_cover >= 25)
+cor.test(metrics1$number_patches, metrics1$forest_cover) # not correlated (r=-0.14) p=0.20
+
+# I selected 10 landscapes with few large  patchs, 10 landscapes with many small, and 10 landscapes in the middle of the gradient
+selected_landscapes <- subset(metrics, 
+                              metrics$id %in% c(76, 259, 301, 338, 387, # SS
+                                                468, 545, 584, 586, 588, # SS
+                                                299, 427, 428, 583, 585, # SS
+                                                546, # SS
+                                                28, 112, 145, 150, 186, # FL
+                                                228, 381, 384, 422, 503, # FL
+                                                188, 146, 229, 226, 542, # FL
+                                                549, # FL
+                                                66, 74, 115, 143, 189, 263, # Middle
+                                                269, 307, 340, 506 # Middle
+                              ))
+
+discarded_landscapes <- subset(metrics, metrics$id %in% c(690, 727, 646, 654,
+                                                          789, 728, 489, 331,
+                                                          749, 693, 687, 614,
+                                                          452, 624, 604))
+
+# Visualize in map
+points$id <- seq(1,nrow(points), 1)
+landscapes <- st_buffer(grid, endCapStyle = "SQUARE", dist = 2000)
+landscapes$id <- points$id
+landscapes <- landscapes[landscapes$id %in% selected_landscapes$id,]
+landscapes <- merge(landscapes, metrics, by = "id")
+
+# I selected the landscapes avoiding neighboring ones and maintaining SS above 40 fragments and SL below 20.
+landscapes <- landscapes[-c(1, 9, 12, 14, 16, 20, 29, 30, 34, 36, 38, 40),]
+plot(forest_formation)
+plot(landscapes$geometry, add=TRUE, col="blue")
+
+cor.test(landscapes$number_patches, landscapes$forest_cover) # Not correlated (r=-0.168)
+```
+
+## Point selection
+
+I modified Pavel Dodonov's function to randomly select only 10 points in each landscape while respecting a minimum distance of 200 meters. The original function is available at: <https://github.com/pdodonov/sampling>. The modified version is available in my GitHub as "siteSelection_v0.8.R".
+
+To avoid that the sampling points fall on the edge of the landscape and on the edge of fragments, I created:
+
+1.  a buffer 100 m inside each landscape;
+
+2.  a buffer 50 m inside each forest fragment, so the sampling points will be placed inside the fragment interior and not in its edges.
+
+Using QGIS v.3.34 I transformed forest_cover raster into polygons, selected only the forest polygons (raster value = 1) and created a buffer 50 m inside all fragments. I imported it below:
+
+```{r}
+#| code-overflow: wrap
+source("siteSelection_v0.8.R")
+
+buffer_landscapes <- sf::st_buffer(landscapes, dist = -100)
+
+buffer_forest <- read_sf("Forest_buffer.shp")
+buffer_forest <- st_set_crs(buffer_forest, new_crs)
+
+sampling_points <- data.frame()
+
+for (i in 1:30) {
+  set.seed(13)
+  
+  # Extract the values from the extent of landscape i
+  landscape <- as(extent(buffer_landscapes[i, 4]), 'SpatialPolygons')
+  proj4string(landscape) <- crs(new_crs)
+  
+  # Create points equally spaced at 100 meters within the extent of landscape i  
+  recorders.i <- sp::makegrid(landscape, cellsize = 100)
+  recorders.i <- st_as_sf(recorders.i, coords = c("x1", "x2"), crs = new_crs)
+  
+  # Extracts the raster values at the point locations and selects only the points in the forest (value = 1)
+  recorders.i <- recorders.i[buffer_forest,]
+  recorders.i <- st_set_crs(recorders.i, new_crs)
+  
+  # Converts spatial points object into a data.frame and identifies each one.  
+  recorders.i <- st_coordinates(recorders.i)
+  recorders.i <- as.data.frame(recorders.i)
+  recorders.i$id <- 1:nrow(recorders.i)
+  
+  # Select random points at least 200 meters apart  
+  recorders <- select.site(x = recorders.i, var.site = "id", 
+                           dist.min = 200, coord.X = "X", 
+                           coord.Y = "Y", Nmax = 10, Nsets = 1, Nmin = 10)
+  
+  # Converts the results into a data.frame, identifies, and adds the coordinates
+  recorders <- as.data.frame(recorders)
+  colnames(recorders) <- "id"
+  recorders <- merge(recorders, recorders.i, by = "id")
+  
+  sampling_points <- rbind(sampling_points, recorders)
+}
+
+plot(forest_formation)
+points(sampling_points$X, sampling_points$Y, pch = 16, col = "blue")
+
+```
+
+After the random selection, I manually adjusted some points in QGIS to better represent the landscapes. For example, if one or two out of ten points in a small landscape fell within a large fragment, I moved those points to smaller fragments. Later, in the field, I had to adjust some points because they fell in clearings. However, I followed the same rules (100 m from the landscape edge and 50 m from the fragment edge).
+
+## The sampled landscapes and points
+
+I calculated the area of the patches in the landscape considering only the portion of the patches that were inside the landscape extention. Below you can see the complete information about the sampling landscapes and points.
+
+```{r, output=FALSE}
+#| code-overflow: wrap
+# Importing the raster with only the forest inside the landscapes
+forest_landscapes <- rast("forest_within_sampled_landscapes.tif")
+forest_landscapes <- project(forest_landscapes, crs(new_crs))
+values(forest_landscapes)  = as.integer(values(forest_landscapes))
+check_landscape(forest_landscapes)
+
+sampled_lands <- st_read("sampled_landscapes.shp")
+
+ants <- read.csv("ants_env.csv")
+ants_coord <- ants[-c(201:240),] #removing the points in the continuous forest in landscapes with ~100% FC
+ants_coord <- st_as_sf(ants_coord, coords = c("long_utm", "lat_utm"), crs = new_crs)
+
+
+sampled_patch_size <- extract_lsm(forest_landscapes, ants_coord, ants_coord$point_ID,
+                                  metric = "area", directions = 8)
+
+ants_coord$patch_area <- sampled_patch_size$value[match(ants_coord$point_ID, sampled_patch_size$extract_id)]
+```
+
+Below is the information for the points and landscapes sampled. You can also find it in my GitHub as "sampled_lands.csv"
+```{r}
+ants_coord <- st_drop_geometry(ants_coord)
+write.csv(ants_coord, "sampled_lands.csv")
+
+ants_coord
+
+plot(forest_formation)
+plot(sampled_lands, add=TRUE, col = "blue")
+```

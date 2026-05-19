@@ -1,0 +1,45 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "When is habitat fragmentation bad for biodiversity? The first empirical test of the SLOSS cube hypothesis"
+  author: 
+  - name: Ivana Cardoso
+    orcid: 0000-0003-2662-6426
+    email: ivanawaters@gmail.com
+  - name: Lenore Fahrig
+    orcid: 000-0002-3841-0342
+  - name: Esperidião A. Santos-Neto
+    orcid: 0000-0003-3557-4904
+  - name: Rayssa T. Amarante
+    orcid: 0009-0002-4837-6202
+  - name: Felipe Brum
+    orcid: 0009-0005-8961-3878
+  - name: Carlos A. Peres
+    orcid: 0000-0002-1588-8765
+  - name: Igor Luis Kaefer
+    orcid: 0000-0001-6515-0278
+  - name: Anderson S. Bueno
+    orcid: 0000-0001-7416-6626
+  date: "May 19, 2026"
+  chapters:
+    - index.qmd
+    - sampling.qmd
+    - gamma_analysis.qmd
+    - alpha_analysis.qmd
+    - beta_analysis.qmd
+    - NDVI.qmd
+    - ant_dispersion.qmd
+    - changes_landscape_size.qmd
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+    
+editor: visual

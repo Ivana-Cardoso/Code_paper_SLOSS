@@ -1,0 +1,44 @@
+# Introduction
+
+This document covers the analyses used in the paper *When is habitat fragmentation bad for biodiversity? The first empirical test of the SLOSS cube hypothesis*, submitted to the journal [Ecology Letters](https://onlinelibrary.wiley.com/journal/14610248)
+
+The goal of this study was:
+
+To empirically test whether habitat fragmentation, independent of habitat amount, is bad for biodiversity when all the following conditions are met simultaneously:
+
+-   Limited dispersal among patches;
+
+-   Low across-habitat heterogeneity;
+
+-   Large-scale disturbances are absent or rare, leading to a limited role for spreading of risk.
+
+In this study, we develop a unique landscape-scale sampling design and provide the first empirical test of these predictions using leaf-litter ant communities in forest islands formed by river damming in the Brazilian Amazon (Fig. 1). This system uniquely satisfies all three conditions outlined by the SLOSS cube hypothesis. We sampled ten points within each of 20 landscapes, across which total forest cover and the number of islands were not correlated.
+
+![Fig. 1 (a) Location of the study area in Brazilian Amazonia, indicated by a solid black rectangle. (b) The Balbina Hydroelectric Reservoir, showing the boundaries of the Uatumã Biological Reserve, a strictly protected area. (c) Map showing the distribution of 20 sampled landscapes and 10 ant sampling points in each, totalling 200 sampling points. (d) Aerial view of islands in the study area (photo credit: Luciane Moral).](Map_v5.png)
+
+This document is organised into sections, which you can navigate using the links on the left sidebar. Below is a description of each section:
+
+(1) [The sampling design](sampling.qmd): This section includes the steps and analyses used to select the 20 sampled landscapes and the 200 sampling points.
+
+(2) [The data analysis - <span style="background-color: #fff59d;">Gamma diversity</span>](gamma_analysis.qmd): This section includes the analyses used to investigate the effect of forest fragmentation on the total number of leaf-litter ant species across the 10 points in each landscape. 
+
+(3) [The data analysis - <span style="background-color: #fff59d;">Alpha diversity</span>](alpha_analysis.qmd): This section includes the analyses used to investigate the effect of fragmentation on the number of leaf-litter ant species per sampling point.
+
+(4) [The data analysis - <span style="background-color: #fff59d;">Beta diversity</span>](beta_analysis.qmd): This section includes the analyses used to investigate the effect of fragmentation on species turnover among the 10 sampling points within each landscape.
+
+(5) [The across-habitat heterogeneity](NDVI.qmd): This section includes the analyses used to measure forest heterogeneity of landscapes to ensure that the assumption of low and similar across-habitat heterogeneity was met.
+
+(6) [The species dispersal](ant_dispersal.qmd): This section includes analyses used to estimate ant flight capacity and mean nearest-neighbour distances between islands, confirming low movement of individuals among patches.
+
+(7) [The analyses of changes in landscape size](changes_landscape_size.qmd): This section includes the two analyses used to evaluate the roubustness of our results to changes in landscape size: 1) enlarging the landscapes by adding 2km and 4km around the edges and repeated the gamma diversity analises. 2) simple linear regressions relating point-scale ant richness to habitat amount and fragmentation in landscapes defined as circular buffers surrounding the sampling points.
+
+## Data Access
+
+All data used in the paper and in this code are available on \[incluir o nome da plataforma e o url, quando disponível\].
+
+## Attribution
+
+If you need any clarification or are interested in the project, please contact:
+
+Ivana Cardoso (ivanawaters\@gmail.com)\
+PhD student, Instituto Nacional de Pesquisas da Amazônia

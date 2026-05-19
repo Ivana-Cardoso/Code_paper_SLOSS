@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Changes in landscape size – When is habitat fragmentation bad for biodiversity? The first empirical test of the SLOSS cube hypothesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ant_dispersion.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./changes_landscape_size.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Changes in landscape size</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">When is habitat fragmentation bad for biodiversity? The first empirical test of the SLOSS cube hypothesis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The sampling design</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gamma_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gamma diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./alpha_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Alpha diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./beta_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Beta diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./NDVI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The across-habitat heterogeneity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ant_dispersion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Limited dispersal among patches</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./changes_landscape_size.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Changes in landscape size</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#landscapes-of-6x6km-and-8x8km" id="toc-landscapes-of-6x6km-and-8x8km" class="nav-link active" data-scroll-target="#landscapes-of-6x6km-and-8x8km"><span class="header-section-number">8.1</span> Landscapes of 6x6km and 8x8km</a>
+  <ul class="collapse">
+  <li><a href="#loading-packages-and-importing-data" id="toc-loading-packages-and-importing-data" class="nav-link" data-scroll-target="#loading-packages-and-importing-data"><span class="header-section-number">8.1.1</span> Loading packages and importing data</a></li>
+  <li><a href="#x6-km-landscapes-calculating-forest-amount-and-number-of-islands" id="toc-x6-km-landscapes-calculating-forest-amount-and-number-of-islands" class="nav-link" data-scroll-target="#x6-km-landscapes-calculating-forest-amount-and-number-of-islands"><span class="header-section-number">8.1.2</span> 6x6 km landscapes: Calculating forest amount and number of islands</a></li>
+  <li><a href="#x6-km-landscapes-fitting-the-models" id="toc-x6-km-landscapes-fitting-the-models" class="nav-link" data-scroll-target="#x6-km-landscapes-fitting-the-models"><span class="header-section-number">8.1.3</span> 6x6 km landscapes: Fitting the models</a></li>
+  <li><a href="#x6-km-landscapes-plotting-the-graph" id="toc-x6-km-landscapes-plotting-the-graph" class="nav-link" data-scroll-target="#x6-km-landscapes-plotting-the-graph"><span class="header-section-number">8.1.4</span> 6X6 km landscapes: Plotting the graph</a></li>
+  <li><a href="#x8-km-landscapes-calculating-forest-amount-and-number-of-islands" id="toc-x8-km-landscapes-calculating-forest-amount-and-number-of-islands" class="nav-link" data-scroll-target="#x8-km-landscapes-calculating-forest-amount-and-number-of-islands"><span class="header-section-number">8.1.5</span> 8x8 km landscapes: Calculating forest amount and number of islands</a></li>
+  <li><a href="#x8-km-landscapes-fitting-the-models" id="toc-x8-km-landscapes-fitting-the-models" class="nav-link" data-scroll-target="#x8-km-landscapes-fitting-the-models"><span class="header-section-number">8.1.6</span> 8x8 km landscapes: Fitting the models</a></li>
+  <li><a href="#x8-km-landscapes-plotting-the-graph" id="toc-x8-km-landscapes-plotting-the-graph" class="nav-link" data-scroll-target="#x8-km-landscapes-plotting-the-graph"><span class="header-section-number">8.1.7</span> 8X8 km landscapes: Plotting the graph</a></li>
+  </ul></li>
+  <li><a href="#circular-buffers-surroundind-the-points" id="toc-circular-buffers-surroundind-the-points" class="nav-link" data-scroll-target="#circular-buffers-surroundind-the-points"><span class="header-section-number">8.2</span> Circular buffers surroundind the points</a>
+  <ul class="collapse">
+  <li><a href="#loading-packages-and-importing-data-1" id="toc-loading-packages-and-importing-data-1" class="nav-link" data-scroll-target="#loading-packages-and-importing-data-1"><span class="header-section-number">8.2.1</span> Loading packages and importing data</a></li>
+  <li><a href="#calculating-forest-amount-and-number-of-islands-inside-the-buffers" id="toc-calculating-forest-amount-and-number-of-islands-inside-the-buffers" class="nav-link" data-scroll-target="#calculating-forest-amount-and-number-of-islands-inside-the-buffers"><span class="header-section-number">8.2.2</span> Calculating forest amount and number of islands inside the buffers</a></li>
+  <li><a href="#calculating-multiple-regressions-with-forest-amount-and-number-of-patches-on-the-same-scale" id="toc-calculating-multiple-regressions-with-forest-amount-and-number-of-patches-on-the-same-scale" class="nav-link" data-scroll-target="#calculating-multiple-regressions-with-forest-amount-and-number-of-patches-on-the-same-scale"><span class="header-section-number">8.2.3</span> Calculating multiple regressions with forest amount and number of patches on the same scale</a></li>
+  <li><a href="#scale-of-effect-model-with-higher-adjusted-r2" id="toc-scale-of-effect-model-with-higher-adjusted-r2" class="nav-link" data-scroll-target="#scale-of-effect-model-with-higher-adjusted-r2"><span class="header-section-number">8.2.4</span> Scale of effect: model with higher adjusted r2</a></li>
+  <li><a href="#plotting-the-graph" id="toc-plotting-the-graph" class="nav-link" data-scroll-target="#plotting-the-graph"><span class="header-section-number">8.2.5</span> Plotting the graph</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Changes in landscape size</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>To evaluate the robustness of our results to changes in landscape size, we conducted two analyses:</p>
+<ol type="1">
+<li>We enlarged the landscapes by adding 2 km and 4 km around the edges, creating landscapes of 6 x 6 km and 8 x 8 km, and repeated the gamma diversity analysis.</li>
+<li>We fit simple linear regressions relating point-scale ant richness (alpha diversity) to habitat amount and fragmentation in landscapes defined as circular buffers surrounding the points. We did this at multiple spatial extents, from 150-m to 2000-m radius buffers in 50 m increments.</li>
+</ol>
+<section id="landscapes-of-6x6km-and-8x8km" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="landscapes-of-6x6km-and-8x8km"><span class="header-section-number">8.1</span> Landscapes of 6x6km and 8x8km</h2>
+<section id="loading-packages-and-importing-data" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="loading-packages-and-importing-data"><span class="header-section-number">8.1.1</span> Loading packages and importing data</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()); <span class="fu">gc</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">13</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(landscapemetrics)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MuMIn)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggimage)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/ivana/OneDrive/PhD_INPA/2.SLOSS_question/Code_paper_SLOSS"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Balbina <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">"Balbina_mapbiomas_collection8_2022.tif"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>new_crs <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="st">"+proj=utm +south +zone=21 +datum=WGS84 +units=m +no_defs"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Balbina <span class="ot">&lt;-</span> <span class="fu">projectRaster</span>(Balbina, <span class="at">crs =</span> new_crs)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(Balbina) <span class="ot">=</span> <span class="fu">as.integer</span>(<span class="fu">values</span>(Balbina))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">check_landscape</span>(Balbina)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>forest_formation <span class="ot">&lt;-</span> Balbina <span class="sc">==</span> <span class="dv">3</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>forest_formation <span class="ot">&lt;-</span> <span class="fu">projectRaster</span>(forest_formation, <span class="at">crs =</span> new_crs)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(forest_formation)  <span class="ot">=</span> <span class="fu">as.integer</span>(<span class="fu">values</span>(forest_formation))</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">check_landscape</span>(forest_formation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="x6-km-landscapes-calculating-forest-amount-and-number-of-islands" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="x6-km-landscapes-calculating-forest-amount-and-number-of-islands"><span class="header-section-number">8.1.2</span> 6x6 km landscapes: Calculating forest amount and number of islands</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>landscapes6km <span class="ot">&lt;-</span> <span class="fu">vect</span>(<span class="st">"6km_paisagem.shp"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(landscapes6km)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>forest_cover <span class="ot">&lt;-</span> landscapemetrics<span class="sc">::</span><span class="fu">sample_lsm</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  forest_formation,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> landscapes6km,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">what =</span> <span class="st">"lsm_c_pland"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">directions =</span> <span class="dv">8</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot_id =</span> landscapes6km<span class="sc">$</span>name</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>forest_cover <span class="ot">&lt;-</span> <span class="fu">subset</span>(forest_cover, forest_cover<span class="sc">$</span>class <span class="sc">==</span> <span class="dv">1</span>)  <span class="co"># Select only the presence of forest</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>number_patches <span class="ot">&lt;-</span> landscapemetrics<span class="sc">::</span><span class="fu">sample_lsm</span>(forest_formation, </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y =</span> landscapes6km,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">what =</span> <span class="st">"lsm_c_np"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">directions =</span> <span class="dv">8</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">plot_id =</span> landscapes6km<span class="sc">$</span>name)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>number_patches <span class="ot">&lt;-</span> <span class="fu">subset</span>(number_patches, number_patches<span class="sc">$</span>class <span class="sc">==</span> <span class="dv">1</span>)  <span class="co"># Select only the presence of patches</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>number_patches<span class="sc">$</span>plot_id <span class="sc">==</span> forest_cover<span class="sc">$</span>plot_id</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>metrics <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(number_patches<span class="sc">$</span>plot_id, number_patches<span class="sc">$</span>value,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                               forest_cover<span class="sc">$</span>value))</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(metrics) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"number_patches"</span>, <span class="st">"forest_cover"</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>metrics<span class="sc">$</span>type <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>metrics<span class="sc">$</span>type[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>] <span class="ot">&lt;-</span> <span class="st">"#4575b4"</span> <span class="co">#landscapes with few large patches</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>metrics<span class="sc">$</span>type[<span class="dv">9</span><span class="sc">:</span><span class="dv">12</span>] <span class="ot">&lt;-</span> <span class="st">"#fee090"</span> <span class="co">#landscapes with several medium-sized patches</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>metrics<span class="sc">$</span>type[<span class="dv">13</span><span class="sc">:</span><span class="dv">20</span>] <span class="ot">&lt;-</span> <span class="st">"#d73027"</span> <span class="co">#landscapes with many small patches</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>comm <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ants_comm.csv"</span>, <span class="at">header =</span> T)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>comm <span class="ot">&lt;-</span> comm[<span class="sc">-</span><span class="dv">201</span>,]</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"sampled_lands.csv"</span>, <span class="at">header =</span> T)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>complete <span class="ot">&lt;-</span> <span class="fu">merge</span>(comm, env, <span class="at">by =</span> <span class="st">"point_ID"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>complete <span class="ot">&lt;-</span> complete[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">147</span><span class="sc">:</span><span class="dv">154</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">145</span>)]</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating gamma diversity - species richness in the landscapes</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>complete<span class="sc">$</span>landscape <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(complete<span class="sc">$</span>landscape)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>comm_landscape <span class="ot">&lt;-</span> complete[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)] <span class="sc">%&gt;%</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(landscape) <span class="sc">%&gt;%</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(number_patches, forest_cover, long, lat), first),</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(patch_area), mean), <span class="co">#mean patch size by landscape</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">where</span>(is.numeric) <span class="sc">&amp;</span> </span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        <span class="sc">!</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">"number_patches"</span>, <span class="st">"forest_cover"</span>, <span class="st">"long"</span>, <span class="st">"lat"</span>, <span class="st">"patch_area"</span>)),</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>      sum</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>comm_landscape[,<span class="fu">c</span>(<span class="dv">7</span><span class="sc">:</span><span class="dv">150</span>)] <span class="ot">&lt;-</span> </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  comm_landscape[,<span class="fu">c</span>(<span class="dv">7</span><span class="sc">:</span><span class="dv">150</span>)] <span class="sc">%&gt;%</span> </span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">ifelse</span>(. <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="x6-km-landscapes-fitting-the-models" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="x6-km-landscapes-fitting-the-models"><span class="header-section-number">8.1.3</span> 6x6 km landscapes: Fitting the models</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-overflow: wrap</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(comm_landscape[, <span class="dv">7</span><span class="sc">:</span><span class="dv">150</span>] <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="co">#checking if any value is higher than 1 (presence)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>richness <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(comm_landscape[,<span class="dv">7</span><span class="sc">:</span><span class="dv">150</span>]) <span class="co"># richness by landscape</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>landscapes <span class="ot">&lt;-</span> comm_landscape[,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">151</span>)]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(landscapes)[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">"mean_patch_area"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>number_patches6km <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(metrics<span class="sc">$</span>number_patches)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>forest_cover6km <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(metrics<span class="sc">$</span>forest_cover)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(comm_landscape<span class="sc">$</span>number_patches6km, comm_landscape<span class="sc">$</span>forest_cover6km) <span class="co">#cor = -0.28</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  comm_landscape$number_patches6km and comm_landscape$forest_cover6km
+t = -1.2557, df = 18, p-value = 0.2253
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.6452772  0.1815243
+sample estimates:
+       cor 
+-0.2837931 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mod_global6km <span class="ot">&lt;-</span> <span class="fu">lm</span>(richness <span class="sc">~</span> number_patches6km <span class="sc">+</span> forest_cover6km, <span class="at">data =</span> comm_landscape, <span class="at">na.action =</span> na.fail)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_global6km)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = richness ~ number_patches6km + forest_cover6km, 
+    data = comm_landscape, na.action = na.fail)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8.9329 -3.4806 -0.2574  2.2753 11.8844 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       35.18562    7.29345   4.824 0.000159 ***
+number_patches6km -0.09513    0.04945  -1.924 0.071294 .  
+forest_cover6km    0.17714    0.15239   1.162 0.261147    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.552 on 17 degrees of freedom
+Multiple R-squared:  0.288, Adjusted R-squared:  0.2042 
+F-statistic: 3.437 on 2 and 17 DF,  p-value: 0.05576</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>models1 <span class="ot">&lt;-</span> <span class="fu">dredge</span>(mod_global6km)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Fixed term is "(Intercept)"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>models1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Global model call: lm(formula = richness ~ number_patches6km + forest_cover6km, 
+    data = comm_landscape, na.action = na.fail)
+---
+Model selection table 
+  (Int) frs_cv6  nmb_pt6 df  logLik  AICc delta weight
+3 43.00         -0.11140  3 -61.802 131.1  0.00  0.492
+4 35.19  0.1771 -0.09513  4 -61.038 132.7  1.64  0.217
+2 26.81  0.2603           3 -63.007 133.5  2.41  0.148
+1 37.00                   2 -64.434 133.6  2.47  0.143
+Models ranked by AICc(x) </code></pre>
+</div>
+</div>
+</section>
+<section id="x6-km-landscapes-plotting-the-graph" class="level3" data-number="8.1.4">
+<h3 data-number="8.1.4" class="anchored" data-anchor-id="x6-km-landscapes-plotting-the-graph"><span class="header-section-number">8.1.4</span> 6X6 km landscapes: Plotting the graph</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-overflow: wrap</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>cor <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>cor[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>] <span class="ot">&lt;-</span> <span class="st">"#4575b4"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>cor[<span class="dv">9</span><span class="sc">:</span><span class="dv">12</span>] <span class="ot">&lt;-</span> <span class="st">"#fee090"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>cor[<span class="dv">13</span><span class="sc">:</span><span class="dv">20</span>] <span class="ot">&lt;-</span> <span class="st">"#d73027"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plot_6km <span class="ot">&lt;-</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> comm_landscape,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> number_patches6km, <span class="at">y =</span> richness)) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">fill =</span> <span class="st">"#cccccc"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"#252525"</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of islands in the landscape (6 x 6 km)"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of ant species"</span>) <span class="sc">+</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_image</span>(</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">number_patches6km =</span> <span class="dv">120</span>, <span class="at">richness =</span> <span class="dv">51</span>),</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">image =</span> <span class="st">"ant_1.png"</span>), <span class="at">size =</span> <span class="fl">0.08</span> </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="co"># https://www.phylopic.org/images/3ae7cb42-8904-4775-87d6-968255913711/camponotus-vagus</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"#252525"</span>, <span class="at">fill =</span> comm_landscape<span class="sc">$</span>cor,</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"#252525"</span>),</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"#252525"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"#252525"</span>),</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"#252525"</span>, <span class="at">size =</span> <span class="fl">0.25</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plot_6km</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="changes_landscape_size_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="x8-km-landscapes-calculating-forest-amount-and-number-of-islands" class="level3" data-number="8.1.5">
+<h3 data-number="8.1.5" class="anchored" data-anchor-id="x8-km-landscapes-calculating-forest-amount-and-number-of-islands"><span class="header-section-number">8.1.5</span> 8x8 km landscapes: Calculating forest amount and number of islands</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>landscapes8km <span class="ot">&lt;-</span> <span class="fu">vect</span>(<span class="st">"paisagem_da_paisagem.shp"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(landscapes8km)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>forest_cover <span class="ot">&lt;-</span> landscapemetrics<span class="sc">::</span><span class="fu">sample_lsm</span>(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  forest_formation,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> landscapes8km,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">what =</span> <span class="st">"lsm_c_pland"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">directions =</span> <span class="dv">8</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot_id =</span> landscapes8km<span class="sc">$</span>name</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>forest_cover <span class="ot">&lt;-</span> <span class="fu">subset</span>(forest_cover, forest_cover<span class="sc">$</span>class <span class="sc">==</span> <span class="dv">1</span>)  <span class="co"># Select only the presence of forest</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>number_patches <span class="ot">&lt;-</span> landscapemetrics<span class="sc">::</span><span class="fu">sample_lsm</span>(forest_formation, </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y =</span> landscapes8km,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">what =</span> <span class="st">"lsm_c_np"</span>,</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">directions =</span> <span class="dv">8</span>,</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">plot_id =</span> landscapes8km<span class="sc">$</span>name)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>number_patches <span class="ot">&lt;-</span> <span class="fu">subset</span>(number_patches, number_patches<span class="sc">$</span>class <span class="sc">==</span> <span class="dv">1</span>)  <span class="co"># Select only the presence of patches</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>number_patches<span class="sc">$</span>plot_id <span class="sc">==</span> forest_cover<span class="sc">$</span>plot_id</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>metrics2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(number_patches<span class="sc">$</span>plot_id, number_patches<span class="sc">$</span>value,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>                               forest_cover<span class="sc">$</span>value))</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(metrics2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"number_patches"</span>, <span class="st">"forest_cover"</span>)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>number_patches8km <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(metrics2<span class="sc">$</span>number_patches)</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>comm_landscape<span class="sc">$</span>forest_cover8km <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(metrics2<span class="sc">$</span>forest_cover)</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(comm_landscape<span class="sc">$</span>number_patches8km, comm_landscape<span class="sc">$</span>forest_cover8km)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="x8-km-landscapes-fitting-the-models" class="level3" data-number="8.1.6">
+<h3 data-number="8.1.6" class="anchored" data-anchor-id="x8-km-landscapes-fitting-the-models"><span class="header-section-number">8.1.6</span> 8x8 km landscapes: Fitting the models</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-overflow: wrap</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mod_global8km <span class="ot">&lt;-</span> <span class="fu">lm</span>(richness <span class="sc">~</span> number_patches8km <span class="sc">+</span> forest_cover8km, <span class="at">data =</span> comm_landscape, <span class="at">na.action =</span> na.fail)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_global8km)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = richness ~ number_patches8km + forest_cover8km, 
+    data = comm_landscape, na.action = na.fail)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.7592 -4.5116 -0.4453  2.8471 10.6874 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       31.46629    6.54195   4.810 0.000163 ***
+number_patches8km -0.05135    0.03001  -1.711 0.105237    
+forest_cover8km    0.24385    0.12853   1.897 0.074921 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.261 on 17 degrees of freedom
+Multiple R-squared:  0.3606,    Adjusted R-squared:  0.2854 
+F-statistic: 4.795 on 2 and 17 DF,  p-value: 0.02232</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>models2 <span class="ot">&lt;-</span> <span class="fu">dredge</span>(mod_global8km)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Fixed term is "(Intercept)"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>models2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Global model call: lm(formula = richness ~ number_patches8km + forest_cover8km, 
+    data = comm_landscape, na.action = na.fail)
+---
+Model selection table 
+  (Int) frs_cv8  nmb_pt8 df  logLik  AICc delta weight
+4 31.47  0.2438 -0.05135  4 -59.961 130.6  0.00  0.341
+2 24.34  0.3143           3 -61.550 130.6  0.01  0.339
+3 42.81         -0.06958  3 -61.881 131.3  0.67  0.243
+1 37.00                   2 -64.434 133.6  2.99  0.077
+Models ranked by AICc(x) </code></pre>
+</div>
+</div>
+</section>
+<section id="x8-km-landscapes-plotting-the-graph" class="level3" data-number="8.1.7">
+<h3 data-number="8.1.7" class="anchored" data-anchor-id="x8-km-landscapes-plotting-the-graph"><span class="header-section-number">8.1.7</span> 8X8 km landscapes: Plotting the graph</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-overflow: wrap</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>plot_8km <span class="ot">&lt;-</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> comm_landscape,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> number_patches8km, <span class="at">y =</span> richness)) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">fill =</span> <span class="st">"#cccccc"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"#252525"</span>) <span class="sc">+</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of islands in the landscape (8 x 8 km)"</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of ant species"</span>) <span class="sc">+</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_image</span>(</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">number_patches8km =</span> <span class="dv">190</span>, <span class="at">richness =</span> <span class="dv">51</span>),</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">image =</span> <span class="st">"ant_1.png"</span>), <span class="at">size =</span> <span class="fl">0.08</span> </span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="co"># https://www.phylopic.org/images/3ae7cb42-8904-4775-87d6-968255913711/camponotus-vagus</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>,</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"#252525"</span>, <span class="at">fill =</span> comm_landscape<span class="sc">$</span>cor,</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"#252525"</span>),</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"#252525"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"#252525"</span>),</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"#252525"</span>, <span class="at">size =</span> <span class="fl">0.25</span>))</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>plot_8km</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="changes_landscape_size_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="circular-buffers-surroundind-the-points" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="circular-buffers-surroundind-the-points"><span class="header-section-number">8.2</span> Circular buffers surroundind the points</h2>
+<section id="loading-packages-and-importing-data-1" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="loading-packages-and-importing-data-1"><span class="header-section-number">8.2.1</span> Loading packages and importing data</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ants_env.csv"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>comm <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ants_comm.csv"</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>comm <span class="ot">&lt;-</span> comm[<span class="sc">-</span><span class="dv">201</span>,]</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>richness <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">rowSums</span>(<span class="fu">ifelse</span>(comm <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>richness<span class="sc">$</span>point_ID <span class="ot">&lt;-</span> <span class="fu">row.names</span>(richness)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(richness)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"richness"</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>new_crs <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="st">"+proj=utm +south +zone=21 +datum=WGS84 +units=m +no_defs"</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>point_ants <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(data, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"long_utm"</span>, <span class="st">"lat_utm"</span>), <span class="at">crs =</span> new_crs)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>point_ants<span class="sc">$</span>landscape <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(point_ants<span class="sc">$</span>landscape)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>forest <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">"forest_formation.tif"</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(comm <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="co">#checking if any value is higher than 1 (presence)</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>point_ants<span class="sc">$</span>richness <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>point_ants<span class="sc">$</span>richness <span class="ot">&lt;-</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  richness<span class="sc">$</span>richness[<span class="fu">match</span>(point_ants<span class="sc">$</span>point_ID, richness<span class="sc">$</span>point_ID)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="calculating-forest-amount-and-number-of-islands-inside-the-buffers" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="calculating-forest-amount-and-number-of-islands-inside-the-buffers"><span class="header-section-number">8.2.2</span> Calculating forest amount and number of islands inside the buffers</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>buffers <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">150</span>, <span class="dv">2000</span>, <span class="at">by =</span> <span class="dv">50</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (b <span class="cf">in</span> buffers) {</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> landscapemetrics<span class="sc">::</span><span class="fu">sample_lsm</span>(</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    forest,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> point_ants,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_id =</span> point_ants<span class="sc">$</span>point_ID,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> b,</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">"circle"</span>,</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">what =</span> <span class="st">"lsm_c_pland"</span>,</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">directions =</span> <span class="dv">8</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># selecting only forest</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">subset</span>(result, class <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>  result<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">scale</span>(result<span class="sc">$</span>value)</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># colname</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  nome_coluna <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"forest_cover_"</span>, b)</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># adding to the dataset</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>  point_ants[[nome_coluna]] <span class="ot">&lt;-</span> </span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>    result<span class="sc">$</span>value[<span class="fu">match</span>(point_ants<span class="sc">$</span>point_ID, result<span class="sc">$</span>plot_id)]</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (b <span class="cf">in</span> buffers) {</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>  result_2 <span class="ot">&lt;-</span> landscapemetrics<span class="sc">::</span><span class="fu">sample_lsm</span>(</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>    forest,</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> point_ants,</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_id =</span> point_ants<span class="sc">$</span>point_ID,</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> b,</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">"circle"</span>,</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">what =</span> <span class="st">"lsm_c_np"</span>,</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">directions =</span> <span class="dv">8</span></span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>  result_2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(result_2, class <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>  result_2<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">scale</span>(result_2<span class="sc">$</span>value)</span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>  nome_coluna <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"number_patches_"</span>, b)</span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>  point_ants[[nome_coluna]] <span class="ot">&lt;-</span> </span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>    result_2<span class="sc">$</span>value[<span class="fu">match</span>(point_ants<span class="sc">$</span>point_ID, result_2<span class="sc">$</span>plot_id)]</span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="calculating-multiple-regressions-with-forest-amount-and-number-of-patches-on-the-same-scale" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="calculating-multiple-regressions-with-forest-amount-and-number-of-patches-on-the-same-scale"><span class="header-section-number">8.2.3</span> Calculating multiple regressions with forest amount and number of patches on the same scale</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-overflow: wrap</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>reg_mult <span class="ot">&lt;-</span> <span class="fu">lapply</span>(buffers, <span class="cf">function</span>(b) {</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  forest_cover <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"forest_cover_"</span>, b)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  number_patch <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"number_patches_"</span>, b)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  formula <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"richness ~"</span>, forest_cover, <span class="st">"+"</span>, number_patch)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(formula, <span class="at">data =</span> point_ants)</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  coefs <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">coef</span>(s))</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  coefs<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coefs)</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  coefs<span class="sc">$</span>buffer <span class="ot">&lt;-</span> b</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>  coefs<span class="sc">$</span>r2 <span class="ot">&lt;-</span> s<span class="sc">$</span>r.squared</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>  coefs<span class="sc">$</span>r2_adj <span class="ot">&lt;-</span> s<span class="sc">$</span>adj.r.squared</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  coefs<span class="sc">$</span>p_model <span class="ot">&lt;-</span> <span class="fu">pf</span>(s<span class="sc">$</span>fstatistic[<span class="dv">1</span>], </span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>                      s<span class="sc">$</span>fstatistic[<span class="dv">2</span>], </span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>                      s<span class="sc">$</span>fstatistic[<span class="dv">3</span>], </span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>                      <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames</span>(coefs) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>  coefs</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>reg_mult_df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(reg_mult)</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(reg_mult_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Estimate Std. Error    t value     Pr(&gt;|t|)                term buffer
+1    7.19500000  0.2278924 31.5719223 5.254638e-79         (Intercept)    150
+2    0.44643191  0.2381973  1.8742104 6.238176e-02    forest_cover_150    150
+3   -0.14522534  0.2381973 -0.6096850 5.427731e-01  number_patches_150    150
+4    7.19500000  0.2253545 31.9274750 8.284702e-80         (Intercept)    200
+5    0.55541525  0.2448655  2.2682459 2.439883e-02    forest_cover_200    200
+6   -0.25719145  0.2448655 -1.0503375 2.948497e-01  number_patches_200    200
+7    7.19500000  0.2252918 31.9363638 7.912210e-80         (Intercept)    250
+8    0.63645714  0.2504258  2.5414999 1.180767e-02    forest_cover_250    250
+9   -0.12623074  0.2504258 -0.5040644 6.147794e-01  number_patches_250    250
+10   7.19500000  0.2229358 32.2738698 1.388287e-80         (Intercept)    300
+11   0.51502605  0.2627070  1.9604581 5.135211e-02    forest_cover_300    300
+12  -0.44171590  0.2627070 -1.6814014 9.426959e-02  number_patches_300    300
+13   7.19500000  0.2225804 32.3253959 1.065529e-80         (Intercept)    350
+14   0.48440563  0.2622878  1.8468475 6.626915e-02    forest_cover_350    350
+15  -0.49441468  0.2622878 -1.8850081 6.090096e-02  number_patches_350    350
+16   7.19500000  0.2232732 32.2250977 1.783883e-80         (Intercept)    400
+17   0.49194338  0.2665264  1.8457584 6.642795e-02    forest_cover_400    400
+18  -0.43934331  0.2665264 -1.6484043 1.008636e-01  number_patches_400    400
+19   7.19500000  0.2239483 32.1279554 2.941571e-80         (Intercept)    450
+20   0.53275442  0.2688629  1.9815095 4.892498e-02    forest_cover_450    450
+21  -0.34876043  0.2688629 -1.2971682 1.960904e-01  number_patches_450    450
+22   7.19500000  0.2241336 32.1013863 3.373390e-80         (Intercept)    500
+23   0.60726138  0.2669872  2.2744961 2.401353e-02    forest_cover_500    500
+24  -0.24845421  0.2669872 -0.9305847 3.532074e-01  number_patches_500    500
+25   7.19500000  0.2243508 32.0703155 3.959821e-80         (Intercept)    550
+26   0.77976438  0.2659262  2.9322591 3.763500e-03    forest_cover_550    550
+27   0.04287989  0.2659262  0.1612474 8.720638e-01  number_patches_550    550
+28   7.19500000  0.2241726 32.0958012 3.471967e-80         (Intercept)    600
+29   0.66711226  0.2671700  2.4969580 1.334604e-02    forest_cover_600    600
+30  -0.16376118  0.2671700 -0.6129475 5.406180e-01  number_patches_600    600
+31   7.19500000  0.2236941 32.1644600 2.437259e-80         (Intercept)    650
+32   0.52788766  0.2712452  1.9461638 5.305744e-02    forest_cover_650    650
+33  -0.36784167  0.2712452 -1.3561221 1.766126e-01  number_patches_650    650
+34   7.19500000  0.2229483 32.2720595 1.401260e-80         (Intercept)    700
+35   0.42205609  0.2676429  1.5769376 1.164143e-01    forest_cover_700    700
+36  -0.52556694  0.2676429 -1.9636875 5.097330e-02  number_patches_700    700
+37   7.19500000  0.2237728 32.1531523 2.583422e-80         (Intercept)    750
+38   0.38888060  0.2686716  1.4474200 1.493688e-01    forest_cover_750    750
+39  -0.50714264  0.2686716 -1.8875932 6.055081e-02  number_patches_750    750
+40   7.19500000  0.2226141 32.3205068 1.092606e-80         (Intercept)    800
+41   0.27114079  0.2668769  1.0159771 3.108864e-01    forest_cover_800    800
+42  -0.67379309  0.2668769 -2.5247338 1.236709e-02  number_patches_800    800
+43   7.19500000  0.2227760 32.2970188 1.232641e-80         (Intercept)    850
+44   0.23323761  0.2697511  0.8646401 3.882880e-01    forest_cover_850    850
+45  -0.69157595  0.2697511 -2.5637560 1.110005e-02  number_patches_850    850
+46   7.19500000  0.2224551 32.3435999 9.705027e-81         (Intercept)    900
+47   0.18821265  0.2686172  0.7006723 4.843343e-01    forest_cover_900    900
+48  -0.74212075  0.2686172 -2.7627445 6.274667e-03  number_patches_900    900
+49   7.19500000  0.2236841 32.1659031 2.419212e-80         (Intercept)    950
+50   0.21932686  0.2703812  0.8111765 4.182433e-01    forest_cover_950    950
+51  -0.65221581  0.2703812 -2.4122085 1.677301e-02  number_patches_950    950
+52   7.19500000  0.2247275 32.0165571 5.226617e-80         (Intercept)   1000
+53   0.23208835  0.2793285  0.8308796 4.070475e-01   forest_cover_1000   1000
+54  -0.57389263  0.2793285 -2.0545437 4.124321e-02 number_patches_1000   1000
+55   7.19500000  0.2242070 32.0908771 3.561275e-80         (Intercept)   1050
+56   0.17659988  0.2782267  0.6347339 5.263385e-01   forest_cover_1050   1050
+57  -0.64864884  0.2782267 -2.3313685 2.074499e-02 number_patches_1050   1050
+58   7.19500000  0.2246259 32.0310364 4.849974e-80         (Intercept)   1100
+59   0.22753654  0.2727541  0.8342187 4.051682e-01   forest_cover_1100   1100
+60  -0.58886457  0.2727541 -2.1589580 3.206239e-02 number_patches_1100   1100
+61   7.19500000  0.2244841 32.0512723 4.368791e-80         (Intercept)   1150
+62   0.22506879  0.2741524  0.8209623 4.126601e-01   forest_cover_1150   1150
+63  -0.59824643  0.2741524 -2.1821673 3.028026e-02 number_patches_1150   1150
+64   7.19500000  0.2228797 32.2819911 1.331553e-80         (Intercept)   1200
+65   0.15017340  0.2708576  0.5544368 5.799088e-01   forest_cover_1200   1200
+66  -0.74524098  0.2708576 -2.7514129 6.487423e-03 number_patches_1200   1200
+67   7.19500000  0.2239721 32.1245394 2.993820e-80         (Intercept)   1250
+68   0.22062358  0.2716045  0.8122972 4.176016e-01   forest_cover_1250   1250
+69  -0.63385042  0.2716045 -2.3337258 2.061838e-02 number_patches_1250   1250
+70   7.19500000  0.2247288 32.0163674 5.231742e-80         (Intercept)   1300
+71   0.30882050  0.2671245  1.1560919 2.490437e-01   forest_cover_1300   1300
+72  -0.52163639  0.2671245 -1.9527836 5.226185e-02 number_patches_1300   1300
+73   7.19500000  0.2233692 32.2112507 1.915584e-80         (Intercept)   1350
+74   0.24781466  0.2656452  0.9328783 3.520248e-01   forest_cover_1350   1350
+75  -0.65253809  0.2656452 -2.4564269 1.489843e-02 number_patches_1350   1350
+76   7.19500000  0.2222057 32.3799063 8.056245e-81         (Intercept)   1400
+77   0.18120310  0.2675406  0.6772920 4.990153e-01   forest_cover_1400   1400
+78  -0.76050627  0.2675406 -2.8425828 4.946339e-03 number_patches_1400   1400
+79   7.19500000  0.2216746 32.4574784 5.414604e-81         (Intercept)   1450
+80   0.16548215  0.2662260  0.6215853 5.349332e-01   forest_cover_1450   1450
+81  -0.79850614  0.2662260 -2.9993546 3.054620e-03 number_patches_1450   1450
+82   7.19500000  0.2217308 32.4492551 5.647374e-81         (Intercept)   1500
+83   0.18424794  0.2644762  0.6966521 4.868417e-01   forest_cover_1500   1500
+84  -0.78425087  0.2644762 -2.9652980 3.397483e-03 number_patches_1500   1500
+85   7.19500000  0.2201575 32.6811557 1.728062e-81         (Intercept)   1550
+86   0.11827540  0.2642093  0.4476580 6.548919e-01   forest_cover_1550   1550
+87  -0.90114945  0.2642093 -3.4107408 7.859544e-04 number_patches_1550   1550
+88   7.19500000  0.2207528 32.5930145 2.708530e-81         (Intercept)   1600
+89   0.15891159  0.2633946  0.6033213 5.469890e-01   forest_cover_1600   1600
+90  -0.84840719  0.2633946 -3.2210497 1.494275e-03 number_patches_1600   1600
+91   7.19500000  0.2212577 32.5186350 3.960208e-81         (Intercept)   1650
+92   0.18813831  0.2634546  0.7141206 4.759979e-01   forest_cover_1650   1650
+93  -0.80512052  0.2634546 -3.0560129 2.553917e-03 number_patches_1650   1650
+94   7.19500000  0.2212296 32.5227762 3.877263e-81         (Intercept)   1700
+95   0.18676097  0.2647456  0.7054357 4.813724e-01   forest_cover_1700   1700
+96  -0.80634413  0.2647456 -3.0457322 2.638743e-03 number_patches_1700   1700
+97   7.19500000  0.2223117 32.3644673 8.719905e-81         (Intercept)   1750
+98   0.25245068  0.2650796  0.9523582 3.420824e-01   forest_cover_1750   1750
+99  -0.70562068  0.2650796 -2.6619204 8.411173e-03 number_patches_1750   1750
+100  7.19500000  0.2218350 32.4340166 6.105619e-81         (Intercept)   1800
+101  0.24531041  0.2649983  0.9257054 3.557317e-01   forest_cover_1800   1800
+102 -0.73496470  0.2649983 -2.7734691 6.079157e-03 number_patches_1800   1800
+103  7.19500000  0.2214439 32.4913006 4.554229e-81         (Intercept)   1850
+104  0.25384755  0.2647758  0.9587264 3.388717e-01   forest_cover_1850   1850
+105 -0.74791907  0.2647758 -2.8247259 5.218953e-03 number_patches_1850   1850
+106  7.19500000  0.2210594 32.5478072 3.411763e-81         (Intercept)   1900
+107  0.27721641  0.2627172  1.0551894 2.926311e-01   forest_cover_1900   1900
+108 -0.75098612  0.2627172 -2.8585341 4.713856e-03 number_patches_1900   1900
+109  7.19500000  0.2206193 32.6127366 2.449236e-81         (Intercept)   1950
+110  0.27167358  0.2657909  1.0221329 3.079716e-01   forest_cover_1950   1950
+111 -0.77227884  0.2657909 -2.9055883 4.084934e-03 number_patches_1950   1950
+112  7.19500000  0.2204628 32.6358868 2.176479e-81         (Intercept)   2000
+113  0.29363091  0.2688568  1.0921461 2.761027e-01   forest_cover_2000   2000
+114 -0.75926801  0.2688568 -2.8240609 5.229365e-03 number_patches_2000   2000
+            r2     r2_adj      p_model
+1   0.02439158 0.01448692 8.782957e-02
+2   0.02439158 0.01448692 8.782957e-02
+3   0.02439158 0.01448692 8.782957e-02
+4   0.04599985 0.03631457 9.672117e-03
+5   0.04599985 0.03631457 9.672117e-03
+6   0.04599985 0.03631457 9.672117e-03
+7   0.04653083 0.03685094 9.155995e-03
+8   0.04653083 0.03685094 9.155995e-03
+9   0.04653083 0.03685094 9.155995e-03
+10  0.06636848 0.05688999 1.154217e-03
+11  0.06636848 0.05688999 1.154217e-03
+12  0.06636848 0.05688999 1.154217e-03
+13  0.06934249 0.05989419 8.429535e-04
+14  0.06934249 0.05989419 8.429535e-04
+15  0.06934249 0.05989419 8.429535e-04
+16  0.06354027 0.05403307 1.554808e-03
+17  0.06354027 0.05403307 1.554808e-03
+18  0.06354027 0.05403307 1.554808e-03
+19  0.05786874 0.04830396 2.818215e-03
+20  0.05786874 0.04830396 2.818215e-03
+21  0.05786874 0.04830396 2.818215e-03
+22  0.05630857 0.04672794 3.317083e-03
+23  0.05630857 0.04672794 3.317083e-03
+24  0.05630857 0.04672794 3.317083e-03
+25  0.05447912 0.04487992 4.014263e-03
+26  0.05447912 0.04487992 4.014263e-03
+27  0.05447912 0.04487992 4.014263e-03
+28  0.05598011 0.04639615 3.432756e-03
+29  0.05598011 0.04639615 3.432756e-03
+30  0.05598011 0.04639615 3.432756e-03
+31  0.06000604 0.05046296 2.253298e-03
+32  0.06000604 0.05046296 2.253298e-03
+33  0.06000604 0.05046296 2.253298e-03
+34  0.06626374 0.05678418 1.167041e-03
+35  0.06626374 0.05678418 1.167041e-03
+36  0.06626374 0.05678418 1.167041e-03
+37  0.05934477 0.04979497 2.414915e-03
+38  0.05934477 0.04979497 2.414915e-03
+39  0.05934477 0.04979497 2.414915e-03
+40  0.06906091 0.05960976 8.684495e-04
+41  0.06906091 0.05960976 8.684495e-04
+42  0.06906091 0.05960976 8.684495e-04
+43  0.06770637 0.05824146 1.002173e-03
+44  0.06770637 0.05824146 1.002173e-03
+45  0.06770637 0.05824146 1.002173e-03
+46  0.07038980 0.06095214 7.544605e-04
+47  0.07038980 0.06095214 7.544605e-04
+48  0.07038980 0.06095214 7.544605e-04
+49  0.06009039 0.05054816 2.233469e-03
+50  0.06009039 0.05054816 2.233469e-03
+51  0.06009039 0.05054816 2.233469e-03
+52  0.05130124 0.04166978 5.586513e-03
+53  0.05130124 0.04166978 5.586513e-03
+54  0.05130124 0.04166978 5.586513e-03
+55  0.05569038 0.04610348 3.538098e-03
+56  0.05569038 0.04610348 3.538098e-03
+57  0.05569038 0.04610348 3.538098e-03
+58  0.05215875 0.04253599 5.110428e-03
+59  0.05215875 0.04253599 5.110428e-03
+60  0.05215875 0.04253599 5.110428e-03
+61  0.05335523 0.04374462 4.512566e-03
+62  0.05335523 0.04374462 4.512566e-03
+63  0.05335523 0.04374462 4.512566e-03
+64  0.06683818 0.05736445 1.098401e-03
+65  0.06683818 0.05736445 1.098401e-03
+66  0.06683818 0.05736445 1.098401e-03
+67  0.05766837 0.04810155 2.877872e-03
+68  0.05766837 0.04810155 2.877872e-03
+69  0.05766837 0.04810155 2.877872e-03
+70  0.05128999 0.04165842 5.593039e-03
+71  0.05128999 0.04165842 5.593039e-03
+72  0.05128999 0.04165842 5.593039e-03
+73  0.06273497 0.05321959 1.692184e-03
+74  0.06273497 0.05321959 1.692184e-03
+75  0.06273497 0.05321959 1.692184e-03
+76  0.07247331 0.06305679 6.048560e-04
+77  0.07247331 0.06305679 6.048560e-04
+78  0.07247331 0.06305679 6.048560e-04
+79  0.07690152 0.06752996 3.775128e-04
+80  0.07690152 0.06752996 3.775128e-04
+81  0.07690152 0.06752996 3.775128e-04
+82  0.07643360 0.06705729 3.968354e-04
+83  0.07643360 0.06705729 3.968354e-04
+84  0.07643360 0.06705729 3.968354e-04
+85  0.08949407 0.08025036 9.757838e-05
+86  0.08949407 0.08025036 9.757838e-05
+87  0.08949407 0.08025036 9.757838e-05
+88  0.08456285 0.07526908 1.661156e-04
+89  0.08456285 0.07526908 1.661156e-04
+90  0.08456285 0.07526908 1.661156e-04
+91  0.08037033 0.07103399 2.605422e-04
+92  0.08037033 0.07103399 2.605422e-04
+93  0.08037033 0.07103399 2.605422e-04
+94  0.08060451 0.07127055 2.540875e-04
+95  0.08060451 0.07127055 2.540875e-04
+96  0.08060451 0.07127055 2.540875e-04
+97  0.07158817 0.06216267 6.644394e-04
+98  0.07158817 0.06216267 6.644394e-04
+99  0.07158817 0.06216267 6.644394e-04
+100 0.07556555 0.06618043 4.353094e-04
+101 0.07556555 0.06618043 4.353094e-04
+102 0.07556555 0.06618043 4.353094e-04
+103 0.07882234 0.06947028 3.074856e-04
+104 0.07882234 0.06947028 3.074856e-04
+105 0.07882234 0.06947028 3.074856e-04
+106 0.08201810 0.07269848 2.183539e-04
+107 0.08201810 0.07269848 2.183539e-04
+108 0.08201810 0.07269848 2.183539e-04
+109 0.08566972 0.07638718 1.474537e-04
+110 0.08566972 0.07638718 1.474537e-04
+111 0.08566972 0.07638718 1.474537e-04
+112 0.08696641 0.07769703 1.282169e-04
+113 0.08696641 0.07769703 1.282169e-04
+114 0.08696641 0.07769703 1.282169e-04</code></pre>
+</div>
+</div>
+</section>
+<section id="scale-of-effect-model-with-higher-adjusted-r2" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="scale-of-effect-model-with-higher-adjusted-r2"><span class="header-section-number">8.2.4</span> Scale of effect: model with higher adjusted r2</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>reg_mult_df[<span class="fu">order</span>(<span class="sc">-</span>reg_mult_df<span class="sc">$</span>r2_adj),][<span class="dv">1</span>,]  <span class="co"># 1550 m</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Estimate Std. Error  t value     Pr(&gt;|t|)        term buffer         r2
+85    7.195  0.2201575 32.68116 1.728062e-81 (Intercept)   1550 0.08949407
+       r2_adj      p_model
+85 0.08025036 9.757838e-05</code></pre>
+</div>
+</div>
+</section>
+<section id="plotting-the-graph" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="plotting-the-graph"><span class="header-section-number">8.2.5</span> Plotting the graph</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecting only the results for number of islands</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>reg_mult_df_2 <span class="ot">&lt;-</span> reg_mult_df[<span class="fu">grepl</span>(<span class="st">"^number_patches_"</span>, reg_mult_df<span class="sc">$</span>term), ]</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(reg_mult_df_2 , <span class="fu">aes</span>(<span class="at">x =</span> buffer, <span class="at">y =</span> Estimate)) <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Estimate <span class="sc">-</span> <span class="st">`</span><span class="at">Std. Error</span><span class="st">`</span>, <span class="at">ymax =</span> Estimate <span class="sc">+</span> <span class="st">`</span><span class="at">Std. Error</span><span class="st">`</span>), <span class="at">color =</span> <span class="st">'black'</span>, <span class="at">width =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Buffer size (m)"</span>,</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Standardized coefficient (SE)"</span>,</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Fragmentation (number of  islands)"</span>) <span class="sc">+</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"black"</span>),</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="st">"cm"</span>))</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>plot1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="changes_landscape_size_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ant_dispersion.html" class="pagination-link" aria-label="Limited dispersal among patches">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Limited dispersal among patches</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

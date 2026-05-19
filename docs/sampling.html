@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; The sampling design – When is habitat fragmentation bad for biodiversity? The first empirical test of the SLOSS cube hypothesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./gamma_analysis.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sampling.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The sampling design</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">When is habitat fragmentation bad for biodiversity? The first empirical test of the SLOSS cube hypothesis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sampling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The sampling design</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gamma_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gamma diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./alpha_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Alpha diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./beta_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Beta diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./NDVI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The across-habitat heterogeneity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ant_dispersion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Limited dispersal among patches</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./changes_landscape_size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Changes in landscape size</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-preparation-before-landscapes-selection" id="toc-data-preparation-before-landscapes-selection" class="nav-link active" data-scroll-target="#data-preparation-before-landscapes-selection"><span class="header-section-number">2.1</span> Data preparation before landscapes selection</a></li>
+  <li><a href="#landscape-selection" id="toc-landscape-selection" class="nav-link" data-scroll-target="#landscape-selection"><span class="header-section-number">2.2</span> Landscape selection</a></li>
+  <li><a href="#point-selection" id="toc-point-selection" class="nav-link" data-scroll-target="#point-selection"><span class="header-section-number">2.3</span> Point selection</a></li>
+  <li><a href="#the-sampled-landscapes-and-points" id="toc-the-sampled-landscapes-and-points" class="nav-link" data-scroll-target="#the-sampled-landscapes-and-points"><span class="header-section-number">2.4</span> The sampled landscapes and points</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The sampling design</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>To arrive at the sampling design used, we followed the steps below to select the landscapes and sampling points.</p>
+<section id="data-preparation-before-landscapes-selection" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="data-preparation-before-landscapes-selection"><span class="header-section-number">2.1</span> Data preparation before landscapes selection</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()); <span class="fu">gc</span>(); <span class="fu">dev.off</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">13</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(landscapemetrics)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>I downloaded the land-use cover raster for Brazil in the year 2022 using the <a href="https://brasil.mapbiomas.org/colecoes-mapbiomas/">MAPBIOMAS Toolkit</a> on the Google Engine. In the Google Engine itself, I selected the area of interest by using a shapefile as a mask. This shapefile is available on my <a href="https://github.com/Ivana-Cardoso/SLOSS_Balbina">GitHub</a> as ‘Balbina.shp’ if you wish to crop it as I did. Alternatively, the raster file is also available on my GitHub as ‘Balbina_mapbiomas_collection8_2022.tif’.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Balbina <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">"Balbina_mapbiomas_collection8_2022.tif"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>new_crs <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="st">"+proj=utm +south +zone=21 +datum=WGS84 +units=m +no_defs"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Balbina <span class="ot">&lt;-</span> <span class="fu">projectRaster</span>(Balbina, <span class="at">crs=</span>new_crs)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(Balbina)  <span class="ot">=</span> <span class="fu">as.integer</span>(<span class="fu">values</span>(Balbina))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">check_landscape</span>(Balbina)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  layer       crs units   class n_classes OK
+1     1 projected     m integer        12  ✔</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Balbina)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sampling_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Below, I (1) create an object only with forest pixels to calculate forest cover and the number of forest patches (habitat), and (2) create a new raster with all land-use types except forest (non-habitat). The reference code for land-use type and pixel values is <a href="https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2023/08/Legenda-Colecao-8-LEGEND-CODE-1.pdf">here</a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only forest pixels </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>forest_formation <span class="ot">&lt;-</span> Balbina <span class="sc">==</span> <span class="dv">3</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>forest_formation <span class="ot">&lt;-</span> <span class="fu">projectRaster</span>(forest_formation, <span class="at">crs=</span>new_crs)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(forest_formation)  <span class="ot">=</span> <span class="fu">as.integer</span>(<span class="fu">values</span>(forest_formation))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">check_landscape</span>(forest_formation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  layer       crs units   class n_classes OK
+1     1 projected     m integer         2  ✔</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forest_formation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sampling_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all land-use types except forest</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>non_habitat <span class="ot">&lt;-</span> Balbina</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>non_habitat[<span class="sc">!</span>(Balbina <span class="sc">!=</span> <span class="dv">3</span>)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>non_habitat <span class="ot">&lt;-</span> <span class="fu">projectRaster</span>(non_habitat, <span class="at">crs=</span>new_crs)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(non_habitat) <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">values</span>(non_habitat))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">check_landscape</span>(non_habitat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  layer       crs units   class n_classes OK
+1     1 projected     m integer        23  ✔</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(non_habitat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sampling_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>I covered the entire extent of Balbina with evenly spaced points. From these points, I created 4 km × 4 km landscapes and calculated forest cover and the number of fragments. I used the function <a href="https://r-spatialecology.github.io/landscapemetrics/reference/sample_lsm.html?q=sample#null">sample_lsm</a> from the <em>landscapemetrics</em> package to calculate these metrics. This function allows you to define the size and shape of the landscapes. Because our landscapes are square, the value of the size argument corresponds to half of the side length of the landscape. To calculate forest cover, I used the function <a href="https://r-spatialecology.github.io/landscapemetrics/reference/lsm_c_pland.html?q=lsm_c_pl#ref-usage">lsm_c_pland</a> inside sample_lsm. To calculate number of forest patches, I used the function <a href="https://r-spatialecology.github.io/landscapemetrics/reference/lsm_c_np.html?q=lsm_c_np#ref-usage">lsm_c_np</a> inside sample_lsm.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a grid of points with a 4km interval</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>extent_grid <span class="ot">&lt;-</span> <span class="fu">as</span>(<span class="fu">extent</span>(forest_formation), <span class="st">'SpatialPolygons'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">proj4string</span>(extent_grid) <span class="ot">&lt;-</span> <span class="fu">crs</span>(new_crs)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>points <span class="ot">&lt;-</span> sp<span class="sc">::</span><span class="fu">makegrid</span>(extent_grid, <span class="at">cellsize =</span> <span class="dv">4000</span>)  <span class="co"># Evenly spaced points (4km)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forest_formation)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(points, <span class="at">pch =</span> <span class="st">"."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate forest cover in the landscapes</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(points, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>), <span class="at">crs =</span> new_crs)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>forest_cover <span class="ot">&lt;-</span> landscapemetrics<span class="sc">::</span><span class="fu">sample_lsm</span>(forest_formation, <span class="at">y =</span> grid, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">size =</span> <span class="dv">2000</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">shape =</span> <span class="st">"square"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">what =</span> <span class="st">"lsm_c_pland"</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">directions =</span> <span class="dv">8</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>forest_cover <span class="ot">&lt;-</span> <span class="fu">subset</span>(forest_cover, forest_cover<span class="sc">$</span>class <span class="sc">==</span> <span class="dv">1</span>)  <span class="co"># Select only the presence of forest</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of patches in the landscapes</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>number_patches <span class="ot">&lt;-</span> landscapemetrics<span class="sc">::</span><span class="fu">sample_lsm</span>(forest_formation, <span class="at">y =</span> grid, </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">size =</span> <span class="dv">2000</span>,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">shape =</span> <span class="st">"square"</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">what =</span> <span class="st">"lsm_c_np"</span>,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">directions =</span> <span class="dv">8</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>number_patches <span class="ot">&lt;-</span> <span class="fu">subset</span>(number_patches, number_patches<span class="sc">$</span>class <span class="sc">==</span> <span class="dv">1</span>)  <span class="co"># Select only the presence of patches</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="landscape-selection" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="landscape-selection"><span class="header-section-number">2.2</span> Landscape selection</h2>
+<p>Below, I plot forest cover (x-axis) against the number of fragments (y-axis) for each landscape (points).</p>
+<p>I pre-selected landscapes with 25–50% forest cover because this range showed the greatest variation in fragmentation (number of forest patches). Within this selection, I searched for landscapes at the extremes of the number of patches gradient to make clear the characterization of few large patches and several small patches. I checked the distribution of each point on the map and sought to make a broad selection that covered a significant portion of the study area. I discarded side-by-side landscapes, and landscapes that I deemed inaccessible due to safety concerns.</p>
+<p>The colored points represent the landscapes that were sampled.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot number of patches X forest cover</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>number_patches<span class="sc">$</span>plot_id <span class="sc">==</span> forest_cover<span class="sc">$</span>plot_id</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>metrics <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(number_patches<span class="sc">$</span>plot_id, number_patches<span class="sc">$</span>value,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                               forest_cover<span class="sc">$</span>value))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(metrics) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"number_patches"</span>, <span class="st">"forest_cover"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>sampled_lands <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ants_env.csv"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>sampled_lands <span class="ot">&lt;-</span> sampled_lands[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>sampled_lands <span class="ot">&lt;-</span> <span class="fu">unique</span>(sampled_lands)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>sampled_lands <span class="ot">&lt;-</span> sampled_lands[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">24</span>),] <span class="co">#removing the landscapes in the continuous forest with ~100% forest cover</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>sampled_lands<span class="sc">$</span>type <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>sampled_lands<span class="sc">$</span>type[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>] <span class="ot">&lt;-</span> <span class="st">"#d73027"</span> <span class="co">#landscapes with many small patches</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>sampled_lands<span class="sc">$</span>type[<span class="dv">9</span><span class="sc">:</span><span class="dv">12</span>] <span class="ot">&lt;-</span> <span class="st">"#fee090"</span> <span class="co">#landscapes with several medium-sized patches</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>sampled_lands<span class="sc">$</span>type[<span class="dv">13</span><span class="sc">:</span><span class="dv">20</span>] <span class="ot">&lt;-</span> <span class="st">"#4575b4"</span> <span class="co">#landscapes with few large patches</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>NP_FC_plot <span class="ot">&lt;-</span> </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> metrics,</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> number_patches, <span class="at">y =</span> forest_cover)) <span class="sc">+</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of islands"</span>,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Forest cover (%)"</span>) <span class="sc">+</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">size =</span> <span class="dv">4</span>,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"#252525"</span>) <span class="sc">+</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> sampled_lands, <span class="at">shape =</span> <span class="dv">21</span>,</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> number_patches, <span class="at">y =</span> forest_cover),</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"#252525"</span>, <span class="at">fill =</span> sampled_lands<span class="sc">$</span>type,</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color=</span><span class="st">"#fe9929"</span>,<span class="at">alpha=</span><span class="fl">0.5</span>, </span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">xmin=</span><span class="dv">0</span>, <span class="at">xmax=</span><span class="dv">65</span>, <span class="at">ymin=</span><span class="dv">25</span>,<span class="at">ymax=</span><span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_pubr</span>(<span class="at">base_size =</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>NP_FC_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sampling_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This plot show the relationship between forest cover and number of islands for the 1,080 16-km² landscapes in the entire area of the Balbina Hydroelectric Reservoir. Blue dots - low fragmentation; yellow dots - moderate fragmentation; red dots - high fragmentation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Select landscapes with 25 to 50% forest cover </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>metrics1 <span class="ot">=</span> <span class="fu">subset</span>(metrics, metrics<span class="sc">$</span>forest_cover <span class="sc">&lt;=</span> <span class="dv">50</span> <span class="sc">&amp;</span> metrics<span class="sc">$</span>forest_cover <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(metrics1<span class="sc">$</span>number_patches, metrics1<span class="sc">$</span>forest_cover) <span class="co"># not correlated (r=-0.14, p=0.20)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  metrics1$number_patches and metrics1$forest_cover
+t = -1.2845, df = 80, p-value = 0.2027
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.3484110  0.0772381
+sample estimates:
+       cor 
+-0.1421517 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I selected 10 landscapes with few large  patchs, 10 landscapes with many small, and 10 landscapes in the middle of the gradient</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>selected_landscapes <span class="ot">&lt;-</span> <span class="fu">subset</span>(metrics, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                              metrics<span class="sc">$</span>id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">76</span>, <span class="dv">259</span>, <span class="dv">301</span>, <span class="dv">338</span>, <span class="dv">387</span>, <span class="co"># Many Small (MS)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">468</span>, <span class="dv">545</span>, <span class="dv">584</span>, <span class="dv">586</span>, <span class="dv">588</span>, <span class="co"># MS</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">299</span>, <span class="dv">427</span>, <span class="dv">428</span>, <span class="dv">583</span>, <span class="dv">585</span>, <span class="co"># MS</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">546</span>, <span class="co"># SS</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">28</span>, <span class="dv">112</span>, <span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">186</span>, <span class="co"># Few Large (FL)</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">228</span>, <span class="dv">381</span>, <span class="dv">384</span>, <span class="dv">422</span>, <span class="dv">503</span>, <span class="co"># FL</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">188</span>, <span class="dv">146</span>, <span class="dv">229</span>, <span class="dv">226</span>, <span class="dv">542</span>, <span class="co"># FL</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">549</span>, <span class="co"># FL</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">66</span>, <span class="dv">74</span>, <span class="dv">115</span>, <span class="dv">143</span>, <span class="dv">189</span>, <span class="dv">263</span>, <span class="co"># Several medium-sized (SM)</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>                                                <span class="dv">269</span>, <span class="dv">307</span>, <span class="dv">340</span>, <span class="dv">506</span> <span class="co"># SM</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>                              ))</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>discarded_landscapes <span class="ot">&lt;-</span> <span class="fu">subset</span>(metrics, metrics<span class="sc">$</span>id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">690</span>, <span class="dv">727</span>, <span class="dv">646</span>, <span class="dv">654</span>,</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                                                          <span class="dv">789</span>, <span class="dv">728</span>, <span class="dv">489</span>, <span class="dv">331</span>,</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                                                          <span class="dv">749</span>, <span class="dv">693</span>, <span class="dv">687</span>, <span class="dv">614</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                                                          <span class="dv">452</span>, <span class="dv">624</span>, <span class="dv">604</span>))</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize in map</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>points<span class="sc">$</span>id <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="fu">nrow</span>(points), <span class="dv">1</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>landscapes <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(grid, <span class="at">endCapStyle =</span> <span class="st">"SQUARE"</span>, <span class="at">dist =</span> <span class="dv">2000</span>)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>landscapes<span class="sc">$</span>id <span class="ot">&lt;-</span> points<span class="sc">$</span>id</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>landscapes <span class="ot">&lt;-</span> landscapes[landscapes<span class="sc">$</span>id <span class="sc">%in%</span> selected_landscapes<span class="sc">$</span>id,]</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>landscapes <span class="ot">&lt;-</span> <span class="fu">merge</span>(landscapes, metrics, <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="co"># I selected the landscapes avoiding neighboring ones and maintaining SS above 40 fragments and SL below 20.</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>landscapes <span class="ot">&lt;-</span> landscapes[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">20</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">38</span>, <span class="dv">40</span>),]</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forest_formation)</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(landscapes<span class="sc">$</span>geometry, <span class="at">add=</span><span class="cn">TRUE</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sampling_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(landscapes<span class="sc">$</span>number_patches, landscapes<span class="sc">$</span>forest_cover) <span class="co"># Not correlated (r=-0.168)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  landscapes$number_patches and landscapes$forest_cover
+t = -0.90412, df = 28, p-value = 0.3736
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4984470  0.2042398
+sample estimates:
+       cor 
+-0.1684222 </code></pre>
+</div>
+</div>
+</section>
+<section id="point-selection" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="point-selection"><span class="header-section-number">2.3</span> Point selection</h2>
+<p>I modified Pavel Dodonov’s function to randomly select only 10 points in each landscape while respecting a minimum distance of 200 meters. The original function is available at: <a href="https://github.com/pdodonov/sampling" class="uri">https://github.com/pdodonov/sampling</a>. The modified version is available in my GitHub as “siteSelection_v0.8.R”.</p>
+<p>To avoid that the sampling points fall on the edge of the landscape and on the edge of fragments, I created:</p>
+<ol type="1">
+<li><p>a buffer 100 m inside each landscape;</p></li>
+<li><p>a buffer 50 m inside each forest fragment, so the sampling points will be placed inside the fragment interior and not in its edges.</p></li>
+</ol>
+<p>Using QGIS v.3.34 I transformed forest_cover raster into polygons, selected only the forest polygons (raster value = 1) and created a buffer 50 m inside all fragments. I imported it below:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"siteSelection_v0.8.R"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>buffer_landscapes <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_buffer</span>(landscapes, <span class="at">dist =</span> <span class="sc">-</span><span class="dv">100</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>buffer_forest <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"Forest_buffer.shp"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>buffer_forest <span class="ot">&lt;-</span> <span class="fu">st_set_crs</span>(buffer_forest, new_crs)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>sampling_points <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>) {</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">13</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract the values from the extent of landscape i</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  landscape <span class="ot">&lt;-</span> <span class="fu">as</span>(<span class="fu">extent</span>(buffer_landscapes[i, <span class="dv">4</span>]), <span class="st">'SpatialPolygons'</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">proj4string</span>(landscape) <span class="ot">&lt;-</span> <span class="fu">crs</span>(new_crs)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create points equally spaced at 100 meters within the extent of landscape i  </span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  recorders.i <span class="ot">&lt;-</span> sp<span class="sc">::</span><span class="fu">makegrid</span>(landscape, <span class="at">cellsize =</span> <span class="dv">100</span>)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  recorders.i <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(recorders.i, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>), <span class="at">crs =</span> new_crs)</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extracts the raster values at the point locations and selects only the points in the forest (value = 1)</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  recorders.i <span class="ot">&lt;-</span> recorders.i[buffer_forest,]</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  recorders.i <span class="ot">&lt;-</span> <span class="fu">st_set_crs</span>(recorders.i, new_crs)</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Converts spatial points object into a data.frame and identifies each one.  </span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>  recorders.i <span class="ot">&lt;-</span> <span class="fu">st_coordinates</span>(recorders.i)</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>  recorders.i <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(recorders.i)</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>  recorders.i<span class="sc">$</span>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(recorders.i)</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select random points at least 200 meters apart  </span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>  recorders <span class="ot">&lt;-</span> <span class="fu">select.site</span>(<span class="at">x =</span> recorders.i, <span class="at">var.site =</span> <span class="st">"id"</span>, </span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>                           <span class="at">dist.min =</span> <span class="dv">200</span>, <span class="at">coord.X =</span> <span class="st">"X"</span>, </span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>                           <span class="at">coord.Y =</span> <span class="st">"Y"</span>, <span class="at">Nmax =</span> <span class="dv">10</span>, <span class="at">Nsets =</span> <span class="dv">1</span>, <span class="at">Nmin =</span> <span class="dv">10</span>)</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Converts the results into a data.frame, identifies, and adds the coordinates</span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>  recorders <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(recorders)</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(recorders) <span class="ot">&lt;-</span> <span class="st">"id"</span></span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>  recorders <span class="ot">&lt;-</span> <span class="fu">merge</span>(recorders, recorders.i, <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>  sampling_points <span class="ot">&lt;-</span> <span class="fu">rbind</span>(sampling_points, recorders)</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forest_formation)</span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(sampling_points<span class="sc">$</span>X, sampling_points<span class="sc">$</span>Y, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sampling_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-sampled-landscapes-and-points" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-sampled-landscapes-and-points"><span class="header-section-number">2.4</span> The sampled landscapes and points</h2>
+<p>I calculated the area of the patches in the landscape considering only the portion of the patches that were inside the landscape extention. Below you can see the complete information about the sampling landscapes and points.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing the raster with only the forest inside the landscapes</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>forest_landscapes <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"forest_within_sampled_landscapes.tif"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>forest_landscapes <span class="ot">&lt;-</span> <span class="fu">project</span>(forest_landscapes, <span class="fu">crs</span>(new_crs))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(forest_landscapes)  <span class="ot">=</span> <span class="fu">as.integer</span>(<span class="fu">values</span>(forest_landscapes))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">check_landscape</span>(forest_landscapes)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>sampled_lands <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"sampled_landscapes.shp"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>ants <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ants_env.csv"</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>ants_coord <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(ants, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"long_utm"</span>, <span class="st">"lat_utm"</span>), <span class="at">crs =</span> new_crs)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>sampled_patch_size <span class="ot">&lt;-</span> <span class="fu">extract_lsm</span>(forest_landscapes, ants_coord, ants_coord<span class="sc">$</span>point_ID,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">metric =</span> <span class="st">"area"</span>, <span class="at">directions =</span> <span class="dv">8</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>ants_coord<span class="sc">$</span>patch_area <span class="ot">&lt;-</span> sampled_patch_size<span class="sc">$</span>value[<span class="fu">match</span>(ants_coord<span class="sc">$</span>point_ID, sampled_patch_size<span class="sc">$</span>extract_id)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Below is the information for the points and landscapes sampled. You can also find it in my GitHub as “sampled_lands.csv”</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ants_coord <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(ants_coord)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(ants_coord, <span class="st">"sampled_lands.csv"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ants_coord</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    landscape number_patches forest_cover point point_ID sampling_date
+1          S1             48        42.55     1     S1_1    04/12/2024
+2          S1             48        42.55     2     S1_2    04/12/2024
+3          S1             48        42.55     3     S1_3    04/12/2024
+4          S1             48        42.55     4     S1_4    04/12/2024
+5          S1             48        42.55     5     S1_5    04/12/2024
+6          S1             48        42.55     6     S1_6    04/12/2024
+7          S1             48        42.55     7     S1_7    04/12/2024
+8          S1             48        42.55     8     S1_8    04/12/2024
+9          S1             48        42.55     9     S1_9    04/12/2024
+10         S1             48        42.55    10    S1_10    04/12/2024
+11         S2             42        26.97     1     S2_1    16/11/2024
+12         S2             42        26.97     2     S2_2    16/11/2024
+13         S2             42        26.97     3     S2_3    16/11/2024
+14         S2             42        26.97     4     S2_4    16/11/2024
+15         S2             42        26.97     5     S2_5    16/11/2024
+16         S2             42        26.97     6     S2_6    16/11/2024
+17         S2             42        26.97     7     S2_7    16/11/2024
+18         S2             42        26.97     8     S2_8    16/11/2024
+19         S2             42        26.97     9     S2_9    16/11/2024
+20         S2             42        26.97    10    S2_10    16/11/2024
+21         S3             57        35.72     1     S3_1    10/11/2024
+22         S3             57        35.72     2     S3_2    10/11/2024
+23         S3             57        35.72     3     S3_3    10/11/2024
+24         S3             57        35.72     4     S3_4    10/11/2024
+25         S3             57        35.72     5     S3_5    10/11/2024
+26         S3             57        35.72     6     S3_6    10/11/2024
+27         S3             57        35.72     7     S3_7    10/11/2024
+28         S3             57        35.72     8     S3_8    10/11/2024
+29         S3             57        35.72     9     S3_9    10/11/2024
+30         S3             57        35.72    10    S3_10    10/11/2024
+31         S4             41        27.91     1     S4_1    24/11/2024
+32         S4             41        27.91     2     S4_2    24/11/2024
+33         S4             41        27.91     3     S4_3    24/11/2024
+34         S4             41        27.91     4     S4_4    24/11/2024
+35         S4             41        27.91     5     S4_5    24/11/2024
+36         S4             41        27.91     6     S4_6    24/11/2024
+37         S4             41        27.91     7     S4_7    24/11/2024
+38         S4             41        27.91     8     S4_8    24/11/2024
+39         S4             41        27.91     9     S4_9    24/11/2024
+40         S4             41        27.91    10    S4_10    24/11/2024
+41         S7             41        43.62     1     S7_1    23/11/2024
+42         S7             41        43.62     2     S7_2    23/11/2024
+43         S7             41        43.62     3     S7_3    23/11/2024
+44         S7             41        43.62     4     S7_4    23/11/2024
+45         S7             41        43.62     5     S7_5    23/11/2024
+46         S7             41        43.62     6     S7_6    23/11/2024
+47         S7             41        43.62     7     S7_7    23/11/2024
+48         S7             41        43.62     8     S7_8    23/11/2024
+49         S7             41        43.62     9     S7_9    23/11/2024
+50         S7             41        43.62    10    S7_10    23/11/2024
+51         S8             41        26.56     1     S8_1    26/11/2024
+52         S8             41        26.56     2     S8_2    26/11/2024
+53         S8             41        26.56     3     S8_3    26/11/2024
+54         S8             41        26.56     4     S8_4    26/11/2024
+55         S8             41        26.56     5     S8_5    26/11/2024
+56         S8             41        26.56     6     S8_6    26/11/2024
+57         S8             41        26.56     7     S8_7    26/11/2024
+58         S8             41        26.56     8     S8_8    26/11/2024
+59         S8             41        26.56     9     S8_9    26/11/2024
+60         S8             41        26.56    10    S8_10    26/11/2024
+61         S9             41        45.27     1     S9_1    27/11/2024
+62         S9             41        45.27     2     S9_2    27/11/2024
+63         S9             41        45.27     3     S9_3    27/11/2024
+64         S9             41        45.27     4     S9_4    27/11/2024
+65         S9             41        45.27     5     S9_5    27/11/2024
+66         S9             41        45.27     6     S9_6    27/11/2024
+67         S9             41        45.27     7     S9_7    27/11/2024
+68         S9             41        45.27     8     S9_8    27/11/2024
+69         S9             41        45.27     9     S9_9    27/11/2024
+70         S9             41        45.27    10    S9_10    27/11/2024
+71        S10             47        36.22     1    S10_1    12/11/2024
+72        S10             47        36.22     2    S10_2    12/11/2024
+73        S10             47        36.22     3    S10_3    12/11/2024
+74        S10             47        36.22     4    S10_4    12/11/2024
+75        S10             47        36.22     5    S10_5    12/11/2024
+76        S10             47        36.22     6    S10_6    12/11/2024
+77        S10             47        36.22     7    S10_7    12/11/2024
+78        S10             47        36.22     8    S10_8    12/11/2024
+79        S10             47        36.22     9    S10_9    12/11/2024
+80        S10             47        36.22    10   S10_10    12/11/2024
+81         M2             38        26.31     1     M2_1    06/12/2024
+82         M2             38        26.31     2     M2_2    06/12/2024
+83         M2             38        26.31     3     M2_3    06/12/2024
+84         M2             38        26.31     4     M2_4    06/12/2024
+85         M2             38        26.31     5     M2_5    06/12/2024
+86         M2             38        26.31     6     M2_6    06/12/2024
+87         M2             38        26.31     7     M2_7    06/12/2024
+88         M2             38        26.31     8     M2_8    06/12/2024
+89         M2             38        26.31     9     M2_9    06/12/2024
+90         M2             38        26.31    10    M2_10    06/12/2024
+91         M6             26        40.65     1     M6_1    01/12/2024
+92         M6             26        40.65     2     M6_2    01/12/2024
+93         M6             26        40.65     3     M6_3    01/12/2024
+94         M6             26        40.65     4     M6_4    01/12/2024
+95         M6             26        40.65     5     M6_5    01/12/2024
+96         M6             26        40.65     6     M6_6    01/12/2024
+97         M6             26        40.65     7     M6_7    01/12/2024
+98         M6             26        40.65     8     M6_8    01/12/2024
+99         M6             26        40.65     9     M6_9    01/12/2024
+100        M6             26        40.65    10    M6_10    01/12/2024
+101        M9             27        45.75     1     M9_1    15/11/2024
+102        M9             27        45.75     2     M9_2    15/11/2024
+103        M9             27        45.75     3     M9_3    15/11/2024
+104        M9             27        45.75     4     M9_4    15/11/2024
+105        M9             27        45.75     5     M9_5    15/11/2024
+106        M9             27        45.75     6     M9_6    15/11/2024
+107        M9             27        45.75     7     M9_7    15/11/2024
+108        M9             27        45.75     8     M9_8    15/11/2024
+109        M9             27        45.75     9     M9_9    15/11/2024
+110        M9             27        45.75    10    M9_10    15/11/2024
+111       M10             37        33.82     1    M10_1    11/11/2024
+112       M10             37        33.82     2    M10_2    11/11/2024
+113       M10             37        33.82     3    M10_3    11/11/2024
+114       M10             37        33.82     4    M10_4    11/11/2024
+115       M10             37        33.82     5    M10_5    11/11/2024
+116       M10             37        33.82     6    M10_6    11/11/2024
+117       M10             37        33.82     7    M10_7    11/11/2024
+118       M10             37        33.82     8    M10_8    11/11/2024
+119       M10             37        33.82     9    M10_9    11/11/2024
+120       M10             37        33.82    10   M10_10    11/11/2024
+121        L1             18        41.11     1     L1_1    05/12/2024
+122        L1             18        41.11     2     L1_2    05/12/2024
+123        L1             18        41.11     3     L1_3    05/12/2024
+124        L1             18        41.11     4     L1_4    05/12/2024
+125        L1             18        41.11     5     L1_5    05/12/2024
+126        L1             18        41.11     6     L1_6    05/12/2024
+127        L1             18        41.11     7     L1_7    05/12/2024
+128        L1             18        41.11     8     L1_8    05/12/2024
+129        L1             18        41.11     9     L1_9    05/12/2024
+130        L1             18        41.11    10    L1_10    05/12/2024
+131        L2             15        47.10     1     L2_1    30/11/2024
+132        L2             15        47.10     2     L2_2    30/11/2024
+133        L2             15        47.10     3     L2_3    30/11/2024
+134        L2             15        47.10     4     L2_4    30/11/2024
+135        L2             15        47.10     5     L2_5    30/11/2024
+136        L2             15        47.10     6     L2_6    30/11/2024
+137        L2             15        47.10     7     L2_7    30/11/2024
+138        L2             15        47.10     8     L2_8    30/11/2024
+139        L2             15        47.10     9     L2_9    30/11/2024
+140        L2             15        47.10    10    L2_10    30/11/2024
+141        L3             19        31.28     1     L3_1    02/12/2024
+142        L3             19        31.28     2     L3_2    02/12/2024
+143        L3             19        31.28     3     L3_3    02/12/2024
+144        L3             19        31.28     4     L3_4    02/12/2024
+145        L3             19        31.28     5     L3_5    02/12/2024
+146        L3             19        31.28     6     L3_6    02/12/2024
+147        L3             19        31.28     7     L3_7    02/12/2024
+148        L3             19        31.28     8     L3_8    02/12/2024
+149        L3             19        31.28     9     L3_9    02/12/2024
+150        L3             19        31.28    10    L3_10    02/12/2024
+151        L4             14        29.02     1     L4_1    29/11/2024
+152        L4             14        29.02     2     L4_2    29/11/2024
+153        L4             14        29.02     3     L4_3    29/11/2024
+154        L4             14        29.02     4     L4_4    29/11/2024
+155        L4             14        29.02     5     L4_5    29/11/2024
+156        L4             14        29.02     6     L4_6    29/11/2024
+157        L4             14        29.02     7     L4_7    29/11/2024
+158        L4             14        29.02     8     L4_8    29/11/2024
+159        L4             14        29.02     9     L4_9    29/11/2024
+160        L4             14        29.02    10    L4_10    29/11/2024
+161        L7             15        28.61     1     L7_1    17/11/2024
+162        L7             15        28.61     2     L7_2    17/11/2024
+163        L7             15        28.61     3     L7_3    17/11/2024
+164        L7             15        28.61     4     L7_4    17/11/2024
+165        L7             15        28.61     5     L7_5    17/11/2024
+166        L7             15        28.61     6     L7_6    17/11/2024
+167        L7             15        28.61     7     L7_7    17/11/2024
+168        L7             15        28.61     8     L7_8    17/11/2024
+169        L7             15        28.61     9     L7_9    17/11/2024
+170        L7             15        28.61    10    L7_10    17/11/2024
+171        L8             10        47.69     1     L8_1    14/11/2024
+172        L8             10        47.69     2     L8_2    14/11/2024
+173        L8             10        47.69     3     L8_3    14/11/2024
+174        L8             10        47.69     4     L8_4    14/11/2024
+175        L8             10        47.69     5     L8_5    14/11/2024
+176        L8             10        47.69     6     L8_6    14/11/2024
+177        L8             10        47.69     7     L8_7    14/11/2024
+178        L8             10        47.69     8     L8_8    14/11/2024
+179        L8             10        47.69     9     L8_9    14/11/2024
+180        L8             10        47.69    10    L8_10    14/11/2024
+181        L9             16        34.79     1     L9_1    25/11/2024
+182        L9             16        34.79     2     L9_2    25/11/2024
+183        L9             16        34.79     3     L9_3    25/11/2024
+184        L9             16        34.79     4     L9_4    25/11/2024
+185        L9             16        34.79     5     L9_5    25/11/2024
+186        L9             16        34.79     6     L9_6    25/11/2024
+187        L9             16        34.79     7     L9_7    25/11/2024
+188        L9             16        34.79     8     L9_8    25/11/2024
+189        L9             16        34.79     9     L9_9    25/11/2024
+190        L9             16        34.79    10    L9_10    25/11/2024
+191       L10             14        44.87     1    L10_1    09/11/2024
+192       L10             14        44.87     2    L10_2    09/11/2024
+193       L10             14        44.87     3    L10_3    09/11/2024
+194       L10             14        44.87     4    L10_4    09/11/2024
+195       L10             14        44.87     5    L10_5    09/11/2024
+196       L10             14        44.87     6    L10_6    09/11/2024
+197       L10             14        44.87     7    L10_7    09/11/2024
+198       L10             14        44.87     8    L10_8    09/11/2024
+199       L10             14        44.87     9    L10_9    09/11/2024
+200       L10             14        44.87    10   L10_10    09/11/2024
+         long       lat patch_area
+1   -59.35265 -1.818951      15.75
+2   -59.34067 -1.825113      15.75
+3   -59.33556 -1.821043      10.53
+4   -59.32090 -1.817907      19.62
+5   -59.32901 -1.804210       9.81
+6   -59.32111 -1.793716       3.42
+7   -59.33885 -1.800708      77.22
+8   -59.34153 -1.794377      35.37
+9   -59.34820 -1.794522       4.95
+10  -59.34572 -1.807705      12.51
+11  -59.67173 -1.531839       9.36
+12  -59.66508 -1.528340       9.90
+13  -59.66274 -1.520101      25.38
+14  -59.65467 -1.526437      28.71
+15  -59.65018 -1.531866      22.68
+16  -59.64747 -1.518313      54.72
+17  -59.65104 -1.501137       6.03
+18  -59.65479 -1.505344      20.97
+19  -59.66901 -1.507441      55.08
+20  -59.67530 -1.508337      20.16
+21  -59.74609 -1.389866      16.47
+22  -59.72724 -1.388081      19.26
+23  -59.72026 -1.378690       6.84
+24  -59.72992 -1.375426      49.32
+25  -59.72156 -1.366471       7.02
+26  -59.73618 -1.358249      24.48
+27  -59.74427 -1.362758      41.40
+28  -59.74158 -1.365472      41.40
+29  -59.73350 -1.367289      94.86
+30  -59.74428 -1.369987      13.41
+31  -59.77924 -1.322966      28.44
+32  -59.77296 -1.322973      25.74
+33  -59.76308 -1.323878      28.08
+34  -59.77207 -1.332905      46.17
+35  -59.76399 -1.335625      46.35
+36  -59.75392 -1.337399       9.45
+37  -59.76115 -1.341240      19.89
+38  -59.75413 -1.345577      67.95
+39  -59.76359 -1.351205       8.01
+40  -59.77417 -1.345581       9.36
+41  -59.87051 -1.577717      26.10
+42  -59.86214 -1.602722       9.27
+43  -59.87478 -1.602053      14.67
+44  -59.87526 -1.594119      45.72
+45  -59.88892 -1.598925      12.42
+46  -59.88801 -1.592140       8.37
+47  -59.88274 -1.587558      16.74
+48  -59.87956 -1.584345      57.15
+49  -59.87922 -1.579458      57.15
+50  -59.88803 -1.578487      10.80
+51  -59.96808 -1.556744      98.91
+52  -59.96627 -1.548624      24.21
+53  -59.97267 -1.550006      21.06
+54  -59.97457 -1.555696      98.91
+55  -59.98314 -1.554220      12.60
+56  -59.98424 -1.557634      20.07
+57  -59.99757 -1.568249      12.42
+58  -59.99769 -1.555202      25.02
+59  -59.99776 -1.544884       6.21
+60  -59.98573 -1.549401      19.26
+61  -59.62912 -1.430932      71.55
+62  -59.63301 -1.437895      71.55
+63  -59.63391 -1.443317     105.48
+64  -59.63754 -1.444036      12.60
+65  -59.63937 -1.451526     105.48
+66  -59.63767 -1.455558      14.04
+67  -59.62672 -1.460361      31.77
+68  -59.62038 -1.460007       8.19
+69  -59.61614 -1.455539       4.77
+70  -59.61878 -1.445657       9.72
+71  -59.62647 -1.334367      11.52
+72  -59.61219 -1.333451      61.65
+73  -59.61674 -1.341219      61.65
+74  -59.62122 -1.333080      66.78
+75  -59.61854 -1.349351      19.53
+76  -59.62227 -1.353956      19.35
+77  -59.63920 -1.341421       8.82
+78  -59.62224 -1.324041      40.41
+79  -59.63919 -1.345705      19.89
+80  -59.63238 -1.327338      12.87
+81  -59.41866 -1.821746       8.82
+82  -59.41659 -1.812647       8.82
+83  -59.41107 -1.808559      11.34
+84  -59.39275 -1.802446      10.17
+85  -59.39612 -1.797416      11.25
+86  -59.41251 -1.803324      11.70
+87  -59.41608 -1.801520      96.48
+88  -59.41936 -1.796092      96.48
+89  -59.40098 -1.797545      20.16
+90  -59.42334 -1.802749       9.36
+91  -59.70983 -1.809237     298.44
+92  -59.70977 -1.799866      54.99
+93  -59.70263 -1.801115      40.23
+94  -59.70352 -1.792971      19.35
+95  -59.69659 -1.796714      15.30
+96  -59.69376 -1.806776      22.50
+97  -59.68764 -1.804056      31.95
+98  -59.69019 -1.814328      31.23
+99  -59.69388 -1.818253      17.82
+100 -59.70715 -1.816462     298.44
+101 -59.92517 -1.547299      42.84
+102 -59.92485 -1.557221       6.30
+103 -59.92656 -1.563001      24.03
+104 -59.92544 -1.570158       8.64
+105 -59.92796 -1.555290      33.21
+106 -59.92150 -1.558526      23.22
+107 -59.91638 -1.552173     497.88
+108 -59.91038 -1.544609     497.88
+109 -59.90059 -1.543511     497.88
+110 -59.89959 -1.554211     497.88
+111 -59.70970 -1.422026      34.65
+112 -59.70270 -1.421429      11.16
+113 -59.69675 -1.421563      25.92
+114 -59.69943 -1.413426      23.85
+115 -59.68818 -1.417488     220.95
+116 -59.68332 -1.414493      12.24
+117 -59.68001 -1.403851       7.29
+118 -59.69199 -1.396562      30.78
+119 -59.70358 -1.395076      28.44
+120 -59.71038 -1.398782      19.35
+121 -59.48435 -1.785149     169.38
+122 -59.47806 -1.784263     169.38
+123 -59.47087 -1.777032      53.64
+124 -59.47334 -1.763905      92.07
+125 -59.47176 -1.773416      53.64
+126 -59.48074 -1.771596      25.47
+127 -59.49616 -1.768520      29.79
+128 -59.46456 -1.761675      92.07
+129 -59.49061 -1.757130      90.00
+130 -59.49689 -1.756208      90.00
+131 -59.55882 -1.723587     203.94
+132 -59.55074 -1.719078     203.94
+133 -59.55522 -1.719072     203.94
+134 -59.54480 -1.719204     164.43
+135 -59.54176 -1.724513     164.43
+136 -59.53683 -1.728163     164.43
+137 -59.54092 -1.719742     164.43
+138 -59.53910 -1.748930     213.39
+139 -59.54179 -1.747109     213.39
+140 -59.55166 -1.741673     213.39
+141 -59.62374 -1.678264     119.61
+142 -59.61086 -1.675615     119.61
+143 -59.62610 -1.662047      50.22
+144 -59.61532 -1.657534      98.82
+145 -59.61711 -1.658435      98.82
+146 -59.62011 -1.652050      98.82
+147 -59.62249 -1.645775     103.77
+148 -59.62698 -1.648480     103.77
+149 -59.62518 -1.645772     103.77
+150 -59.63058 -1.650292     103.77
+151 -59.68900 -1.689065      36.54
+152 -59.71329 -1.686509     122.31
+153 -59.71055 -1.685420     122.31
+154 -59.70607 -1.689945     122.31
+155 -59.71237 -1.692647     122.31
+156 -59.70668 -1.697707     184.50
+157 -59.70700 -1.713440     184.50
+158 -59.71239 -1.708019     184.50
+159 -59.70615 -1.706826     184.50
+160 -59.71057 -1.698984     184.50
+161 -59.85509 -1.496180     260.82
+162 -59.85268 -1.489099     260.82
+163 -59.84947 -1.485533     260.82
+164 -59.85594 -1.481486     260.82
+165 -59.85550 -1.476869     260.82
+166 -59.85213 -1.464747       9.09
+167 -59.84717 -1.465558      32.76
+168 -59.84047 -1.470175      77.85
+169 -59.83778 -1.472889      77.85
+170 -59.82435 -1.499111      25.38
+171 -59.78043 -1.513066      95.40
+172 -59.78314 -1.503538      73.62
+173 -59.77597 -1.502255      48.51
+174 -59.76205 -1.502553     472.14
+175 -59.76599 -1.506425     472.14
+176 -59.77138 -1.508225     472.14
+177 -59.76464 -1.513529     472.14
+178 -59.75805 -1.520315     472.14
+179 -59.75344 -1.517285     472.14
+180 -59.75790 -1.507465     472.14
+181 -59.81037 -1.418182      49.50
+182 -59.80484 -1.407797     137.07
+183 -59.80088 -1.402452     137.07
+184 -59.80357 -1.399738     137.07
+185 -59.81564 -1.394040      36.54
+186 -59.80986 -1.401547      72.18
+187 -59.81794 -1.403335     225.27
+188 -59.81347 -1.409675     225.27
+189 -59.81705 -1.412373     225.27
+190 -59.81976 -1.420502     225.27
+191 -59.58743 -1.388085     121.86
+192 -59.57335 -1.374824     240.03
+193 -59.57150 -1.366203     240.03
+194 -59.58550 -1.370201     220.68
+195 -59.57710 -1.382990     240.03
+196 -59.58377 -1.364898     220.68
+197 -59.59190 -1.384339     121.86
+198 -59.57677 -1.364535     220.68
+199 -59.60419 -1.363827     105.66
+200 -59.60000 -1.357523     105.66</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forest_formation)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sampled_lands, <span class="at">add=</span><span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in plot.sf(sampled_lands, add = TRUE, col = "blue"): ignoring all but
+the first attribute</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sampling_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./gamma_analysis.html" class="pagination-link" aria-label="Gamma diversity">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gamma diversity</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

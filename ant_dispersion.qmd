@@ -1,0 +1,604 @@
+# Limited dispersal among patches
+
+To confirm if there was low movement of individuals among patches in our system, we compared the maximum flight distance of the winged ant queens of each species in our dataset with the mean nearest-neighbour distances between islands in our landscapes. 
+
+We inferred the maximum flight distance of the ant queens using a linear regression between the head width of winged ant queens and their maximum flight distance estimated by [Helms 2018](https://jacksonhelms.com/wp-content/uploads/2019/04/helms-2018-ant-flight-ecology-1.pdf): maximum flight distance = 2.03 * log10(winged queen head width) + 2.37. We used head width measurements of winged queens available on [AntWiki](https://www.antwiki.org/wiki/) and calculated the community-weighted mean of the inferred maximum flight distance for each landscape. We then calculated the mean nearest-neighbour distance between sampled islands and their nearest islands in each landscape to compare between-patch distances to the maximum flight distance estimates.
+
+## Flight capacity of winged ant queens
+### Loading packages and importing data
+```{r, output=FALSE}
+library(BAT)
+library(dplyr)
+
+# Importing data
+rm(list = ls()); gc()
+set.seed(13)
+
+comm <- read.csv("ants_comm.csv", header = T)
+env <- read.csv("sampled_lands.csv", header = T)
+
+complete <- merge(comm, env, by = "point_ID")
+complete <- complete[,c(1,146:154,2:145)]
+
+comm_landscape <- complete[,-c(1,2,6)] %>%
+  group_by(landscape) %>%
+  summarise(
+    across(c(number_patches, forest_cover, long, lat), first),
+    across(c(patch_area), mean), #mean patch size by landscape
+    across(
+      where(is.numeric) & 
+        !all_of(c("number_patches", "forest_cover", "long", "lat", "patch_area")),
+      sum
+    ),
+    .groups = "drop"
+  )
+
+comm_landscape <- comm_landscape[, -c(2:6)]
+remove(comm)
+remove(complete)
+remove(env)
+
+comm_landscape <- as.data.frame(comm_landscape)
+rownames(comm_landscape) <- comm_landscape$landscape
+comm_landscape <- comm_landscape[,-1]
+
+traits <- read.csv("ant_traits.csv")
+setdiff(traits$especie, colnames(comm_landscape)[1:144])
+traits$winged_queen <- as.factor(traits$winged_queen)
+
+winged_queens <- subset(traits, winged_queen == "Yes")
+remove(traits)
+```
+
+I used the regression equation from Helms (2018) to estimate the flight distance of winged ant species and then calculated the community-weighted mean (CWM) estimated flight distance for each landscape.
+
+### Estimating flight distance of winged ant species 
+```{r, output=FALSE}
+winged_queens$max_flight_dist <- 2.03 *log10(winged_queens$queen_HeadWidth) + 2.37
+winged_queens$max_flight_dist <- 10^winged_queens$max_flight_dist
+
+winged_queens <- winged_queens[,-c(2:7)]
+winged_queens$especie <- gsub(" ", "_", winged_queens$especie)
+
+extra_cols <- setdiff(colnames(comm_landscape), winged_queens$especie) # Identify which species should be removed from the community column. Note that I selected only species with winged queens.
+comm_landscape <- comm_landscape[, !(names(comm_landscape) %in% extra_cols)]
+
+rownames(winged_queens) <- winged_queens$especie
+winged_queens <- as.data.frame(winged_queens[-1])
+```
+
+
+### Calculate CWM of maximum flight distance
+```{r}
+#| code-overflow: wrap
+CWM_max_flight_dist <- cwm(comm = comm_landscape, trait = winged_queens, abund = TRUE, na.rm = TRUE)
+CWM_max_flight_dist <- as.data.frame(CWM_max_flight_dist)
+rownames(CWM_max_flight_dist) <- rownames(comm_landscape)
+
+comm_landscape$landscape <- row.names(comm_landscape)
+CWM_max_flight_dist$landscape <- row.names(CWM_max_flight_dist)
+
+comm_landscape <- merge(comm_landscape, CWM_max_flight_dist, by = "landscape")
+comm_landscape <- comm_landscape[,c(1,94,2:93)]
+
+comm_landscape[,c(3:94)] <- 
+  comm_landscape[,c(3:94)] %>% 
+  mutate(across(where(is.numeric), ~ ifelse(. > 0, 1, 0)))
+
+comm_landscape$richness <- rowSums(comm_landscape[,-c(1,2)]) # richness by landscape
+
+comm_landscape$type <- NA
+comm_landscape$type[1:8] <- "FL"
+comm_landscape$type[9:12] <- "MS"
+comm_landscape$type[13:20] <- "SS"
+comm_landscape$type <- as.factor(comm_landscape$type)
+
+comm_landscape <- comm_landscape[,c(1,2,95,96, 3:94)]
+comm_landscape$max_flight_dist <- round(comm_landscape$max_flight_dist, 2)
+
+comm_landscape
+```
+
+## Mean Nearest Neighbour Distance
+### Loading packages and importing data
+```{r, output=FALSE}
+#|code-overflow: wrap
+library(raster)
+library(sf)
+library(terra)
+library(landscapemetrics)
+library(tidyr)
+
+Balbina <- raster("Balbina_mapbiomas_collection8_2022.tif")
+new_crs <- CRS("+proj=utm +south +zone=21 +datum=WGS84 +units=m +no_defs")
+Balbina <- projectRaster(Balbina, crs=new_crs)
+values(Balbina)  = as.integer(values(Balbina))
+check_landscape(Balbina)
+
+# Select only forest pixels 
+forest_formation <- Balbina == 3
+forest_formation <- projectRaster(forest_formation, crs=new_crs)
+values(forest_formation)  = as.integer(values(forest_formation))
+check_landscape(forest_formation)
+remove(Balbina)
+
+mean_dist_landscapes <- data.frame()
+```
+
+### Calculating the mean distance between the sampled patches x all patches in the landscape
+```{r, output=FALSE}
+#| code-overflow: wrap
+#### Small landscapes ####
+setwd("C:/Users/ivana/OneDrive/PhD_INPA/2.SLOSS_question/Code_paper_SLOSS/individual_landscapes")
+
+S1 <- st_read("S1.shp")
+S1 <- st_transform(S1, crs = new_crs)
+S2 <- st_read("S2.shp")
+S2 <- st_transform(S2, crs = new_crs)
+S3 <- st_read("S3.shp")
+S3 <- st_transform(S3, crs = new_crs)
+S4 <- st_read("S4.shp")
+S4 <- st_transform(S4, crs = new_crs)
+S7 <- st_read("S7.shp")
+S7 <- st_transform(S7, crs = new_crs)
+S8 <- st_read("S8.shp")
+S8 <- st_transform(S8, crs = new_crs)
+S9 <- st_read("S9.shp")
+S9 <- st_transform(S9, crs = new_crs)
+S10 <- st_read("S10.shp")
+S10 <- st_transform(S10, crs = new_crs)
+
+setwd("C:/Users/ivana/OneDrive/PhD_INPA/2.SLOSS_question/Code_paper_SLOSS")
+point_ants <- read.csv("ants_env.csv")
+point_ants <- st_as_sf(point_ants, coords = c("long_utm", "lat_utm"), crs = new_crs)
+
+# S1
+S1_raster <- crop(forest_formation, S1)
+S1_raster <- mask(S1_raster, S1)
+S1_raster <- rast(S1_raster)
+
+patches <- get_patches(S1_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(S1_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- data.frame(
+  id = "S1",
+  mean_dist = media_paisagem
+)
+
+# S2
+S2_raster <- crop(forest_formation, S2)
+S2_raster <- mask(S2_raster, S2)
+S2_raster <- rast(S2_raster)
+
+patches <- get_patches(S2_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(S2_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "S2",
+  mean_dist = media_paisagem
+)
+
+# S3
+S3_raster <- crop(forest_formation, S3)
+S3_raster <- mask(S3_raster, S3)
+S3_raster <- rast(S3_raster)
+
+patches <- get_patches(S3_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(S3_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "S3",
+  mean_dist = media_paisagem
+)
+
+# S4
+S4_raster <- crop(forest_formation, S4)
+S4_raster <- mask(S4_raster, S4)
+S4_raster <- rast(S4_raster)
+
+patches <- get_patches(S4_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(S4_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "S4",
+  mean_dist = media_paisagem
+)
+
+# S7
+S7_raster <- crop(forest_formation, S7)
+S7_raster <- mask(S7_raster, S7)
+S7_raster <- rast(S7_raster)
+
+patches <- get_patches(S7_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(S7_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "S7",
+  mean_dist = media_paisagem
+)
+
+# S8
+S8_raster <- crop(forest_formation, S8)
+S8_raster <- mask(S8_raster, S8)
+S8_raster <- rast(S8_raster)
+
+patches <- get_patches(S8_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(S8_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "S8",
+  mean_dist = media_paisagem
+)
+
+# S9
+S9_raster <- crop(forest_formation, S9)
+S9_raster <- mask(S9_raster, S9)
+S9_raster <- rast(S9_raster)
+
+patches <- get_patches(S9_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(S9_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "S9",
+  mean_dist = media_paisagem
+)
+
+# S10
+S10_raster <- crop(forest_formation, S10)
+S10_raster <- mask(S10_raster, S10)
+S10_raster <- rast(S10_raster)
+
+patches <- get_patches(S10_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(S10_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "S10",
+  mean_dist = media_paisagem
+)
+
+#### Medium-sized landscapes ####
+setwd("C:/Users/ivana/OneDrive/PhD_INPA/2.SLOSS_question/Code_paper_SLOSS/individual_landscapes")
+
+M2 <- st_read("M2.shp")
+M2 <- st_transform(M2, crs = new_crs)
+M6 <- st_read("M6.shp")
+M6 <- st_transform(M6, crs = new_crs)
+M9 <- st_read("M9.shp")
+M9 <- st_transform(M9, crs = new_crs)
+M10 <- st_read("M10.shp")
+M10 <- st_transform(M10, crs = new_crs)
+
+# M2
+M2_raster <- crop(forest_formation, M2)
+M2_raster <- mask(M2_raster, M2)
+M2_raster <- rast(M2_raster)
+
+patches <- get_patches(M2_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(M2_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "M2",
+  mean_dist = media_paisagem
+)
+
+
+# M6
+M6_raster <- crop(forest_formation, M6)
+M6_raster <- mask(M6_raster, M6)
+M6_raster <- rast(M6_raster)
+
+patches <- get_patches(M6_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(M6_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "M6",
+  mean_dist = media_paisagem
+)
+
+
+# M9
+M9_raster <- crop(forest_formation, M9)
+M9_raster <- mask(M9_raster, M9)
+M9_raster <- rast(M9_raster)
+
+patches <- get_patches(M9_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(M9_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "M9",
+  mean_dist = media_paisagem
+)
+
+
+# M10
+M10_raster <- crop(forest_formation, M10)
+M10_raster <- mask(M10_raster, M10)
+M10_raster <- rast(M10_raster)
+
+patches <- get_patches(M10_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(M10_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "M10",
+  mean_dist = media_paisagem
+)
+
+
+#### Few large landscapes ####
+L1 <- st_read("L1.shp")
+L1 <- st_transform(L1, crs = new_crs)
+L2 <- st_read("L2.shp")
+L2 <- st_transform(L2, crs = new_crs)
+L3 <- st_read("L3.shp")
+L3 <- st_transform(L3, crs = new_crs)
+L4 <- st_read("L4.shp")
+L4 <- st_transform(L4, crs = new_crs)
+L7 <- st_read("L7.shp")
+L7 <- st_transform(L7, crs = new_crs)
+L8 <- st_read("L8.shp")
+L8 <- st_transform(L8, crs = new_crs)
+L9 <- st_read("L9.shp")
+L9 <- st_transform(L9, crs = new_crs)
+L10 <- st_read("L10.shp")
+L10 <- st_transform(L10, crs = new_crs)
+
+
+# L1
+L1_raster <- crop(forest_formation, L1)
+L1_raster <- mask(L1_raster, L1)
+L1_raster <- rast(L1_raster)
+
+patches <- get_patches(L1_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(L1_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "L1",
+  mean_dist = media_paisagem
+)
+
+
+# L2
+L2_raster <- crop(forest_formation, L2)
+L2_raster <- mask(L2_raster, L2)
+L2_raster <- rast(L2_raster)
+
+patches <- get_patches(L2_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(L2_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "L2",
+  mean_dist = media_paisagem
+)
+
+
+# L3
+L3_raster <- crop(forest_formation, L3)
+L3_raster <- mask(L3_raster, L3)
+L3_raster <- rast(L3_raster)
+
+patches <- get_patches(L3_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(L3_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "L3",
+  mean_dist = media_paisagem
+)
+
+
+# L4
+L4_raster <- crop(forest_formation, L4)
+L4_raster <- mask(L4_raster, L4)
+L4_raster <- rast(L4_raster)
+
+patches <- get_patches(L4_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(L4_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "L4",
+  mean_dist = media_paisagem
+)
+
+
+# L7
+L7_raster <- crop(forest_formation, L7)
+L7_raster <- mask(L7_raster, L7)
+L7_raster <- rast(L7_raster)
+
+patches <- get_patches(L7_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(L7_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "L7",
+  mean_dist = media_paisagem
+)
+
+
+# L8
+L8_raster <- crop(forest_formation, L8)
+L8_raster <- mask(L8_raster, L8)
+L8_raster <- rast(L8_raster)
+
+patches <- get_patches(L8_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(L8_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "L8",
+  mean_dist = media_paisagem
+)
+
+
+# L9
+L9_raster <- crop(forest_formation, L9)
+L9_raster <- mask(L9_raster, L9)
+L9_raster <- rast(L9_raster)
+
+patches <- get_patches(L9_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(L9_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "L9",
+  mean_dist = media_paisagem
+)
+
+
+# L10
+L10_raster <- crop(forest_formation, L10)
+L10_raster <- mask(L10_raster, L10)
+L10_raster <- rast(L10_raster)
+
+patches <- get_patches(L10_raster, directions = 8, class = 1, return_raster = TRUE)
+patches_raster <- patches$layer_1$class_1
+point_ants$point_ID2 <- terra::extract(patches_raster, point_ants)[,2]
+
+enn_patches <- lsm_p_enn(L10_raster, directions = 8)
+enn_patches <- subset(enn_patches, enn_patches$class == 1)
+pontos_enn <- merge(point_ants, enn_patches, by.x = "point_ID2", by.y = "id")
+
+media_paisagem <- mean(pontos_enn$value)
+mean_dist_landscapes <- dplyr::add_row(
+  mean_dist_landscapes,
+  id = "L10",
+  mean_dist = media_paisagem
+)
+
+colnames(mean_dist_landscapes)[1] <- "landscape"
+colnames(mean_dist_landscapes)[2] <- "mean_dist_sampled_patches"
+
+comm_landscape <- merge(comm_landscape, mean_dist_landscapes, by = "landscape")
+comm_landscape <- comm_landscape[,c(1,3,2,97)]
+```
+
+```{r}
+comm_landscape
+```

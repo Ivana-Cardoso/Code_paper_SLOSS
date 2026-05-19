@@ -1,0 +1,125 @@
+# Alpha diversity
+
+To investigate the effect of fragmentation on leaf-litter ant alpha diversity per sampling point, we fitted a generalized linear mixed-effects model with the number of patches in the landscape as the predictor and island and landscape as random effects.
+
+## Loading packages and importing data
+
+```{r, output=FALSE}
+#| code-overflow: wrap
+library(dplyr)
+library(ggplot2)
+library(ggimage)
+library(MuMIn)
+library(performance)
+library(lmerTest)
+
+
+# Importing data
+rm(list = ls()); gc()
+set.seed(13)
+
+comm <- read.csv("ants_comm.csv", header = T)
+env <- read.csv("sampled_lands.csv", header = T)
+
+complete <- merge(comm, env, by = "point_ID")
+complete <- complete[,c(1,147:153,2:145)]
+```
+
+## Calculating species richness by sampling point (alpha diversity)
+
+```{r, output=FALSE}
+#| code-overflow: wrap
+complete[,c(9:152)] <- 
+  complete[,c(9:152)] %>% 
+  mutate(across(where(is.numeric), ~ ifelse(. > 0, 1, 0)))
+
+complete$richness <- rowSums(complete[,9:152]) # richness by point
+```
+
+## Fitting the model
+
+```{r}
+#| code-overflow: wrap
+mod1 <- glmer(richness ~ number_patches + (1 + number_patches | landscape),
+              data = complete, family = "poisson")
+summary(mod1) #slope=-0.01, p < 0.001
+check_residuals(mod1)
+check_overdispersion(mod1)
+```
+
+## Plotting the graph
+
+```{r}
+#| code-overflow: wrap
+
+# Identifying the level of fragmentation in the landscapes
+complete$cor <- NA
+complete$cor[1:80] <- "#4575b4"
+complete$cor[81:120] <- "#fee090"
+complete$cor[121:200] <- "#d73027"
+
+
+# Calculating the predicted values to plot the graph
+newdata <- data.frame(number_patches = seq(min(complete$number_patches),
+                       max(complete$number_patches),
+                       length.out = 100))
+
+newdata$pred <- predict(mod1, newdata = newdata,
+                        type = "response",
+                        re.form = NA)
+
+pred_link <- predict(mod1, newdata = newdata,
+                     type = "link",
+                     se.fit = TRUE,
+                     re.form = NA)
+
+newdata$fit <- exp(pred_link$fit)
+newdata$lwr <- exp(pred_link$fit - 1.96 * pred_link$se.fit)
+newdata$upr <- exp(pred_link$fit + 1.96 * pred_link$se.fit)
+
+plot_alpha <- 
+ggplot(complete, aes(x = number_patches, y = richness)) +
+  
+  geom_point(size = 4, shape = 21,
+             color = "#252525",
+             fill = complete$cor,
+             alpha = 0.6) +
+  
+  geom_ribbon(data = newdata,
+              aes(x = number_patches,
+                  ymin = lwr,
+                  ymax = upr),
+              inherit.aes = FALSE,
+              fill = "#cccccc",
+              alpha = 0.5) +
+  
+  geom_line(data = newdata,
+            aes(x = number_patches, y = fit),
+            inherit.aes = FALSE,
+            color = "#252525",
+            linewidth = 1) +
+  
+  labs(x = "Number of islands in the landscape",
+       y = "Number of ant species in the sampling points") +
+  
+  geom_image(
+    data = tibble(number_patches = 55, richness = 19.2),
+    aes(image = "ant_1.png"), size = 0.08 
+  ) + # https://www.phylopic.org/images/3ae7cb42-8904-4775-87d6-968255913711/camponotus-vagus
+  
+  theme_bw(base_size = 10) +
+  theme(panel.grid = element_blank(),
+        panel.border = element_rect(colour = "#252525"),
+        axis.title = element_text(colour = "#252525", face = "bold", size = 14),
+        axis.title.x = element_text(vjust = 0, size = 14),
+        axis.title.y = element_text(vjust = 2, size = 14),
+        axis.text = element_text(colour = "#252525"),
+        axis.ticks = element_line(colour = "#252525", size = 0.25))
+
+plot_alpha
+
+ggsave(
+  plot = plot_alpha,
+  filename = "alpha_diversity_NumberPatches.png", dpi = 500,
+  width = 8 * 1.6, height = 8 * 1.7, units = 'cm') 
+```

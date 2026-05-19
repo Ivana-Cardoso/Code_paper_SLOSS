@@ -1,0 +1,371 @@
+# Changes in landscape size
+
+To evaluate the robustness of our results to changes in landscape size, we conducted two analyses:
+
+1) We enlarged the landscapes by adding 2 km and 4 km around the edges, creating landscapes of 6 x 6 km and 8 x 8 km, and repeated the gamma diversity analysis. 
+2) We fit simple linear regressions relating point-scale ant richness (alpha diversity) to habitat amount and fragmentation in landscapes defined as circular buffers surrounding the points. We did this at multiple spatial extents, from 150-m to 2000-m radius buffers in 50 m increments.
+
+## Landscapes of 6x6km and 8x8km
+### Loading packages and importing data
+```{r, output=FALSE}
+#| code-overflow: wrap
+rm(list = ls()); gc()
+set.seed(13)
+
+# Load packages
+library(raster)
+library(terra)
+library(landscapemetrics)
+library(ggplot2)
+library(dplyr)
+library(MuMIn)
+library(ggimage)
+library(sf)
+
+setwd("C:/Users/ivana/OneDrive/PhD_INPA/2.SLOSS_question/Code_paper_SLOSS")
+Balbina <- raster("Balbina_mapbiomas_collection8_2022.tif")
+new_crs <- CRS("+proj=utm +south +zone=21 +datum=WGS84 +units=m +no_defs")
+Balbina <- projectRaster(Balbina, crs = new_crs)
+values(Balbina) = as.integer(values(Balbina))
+check_landscape(Balbina)
+
+forest_formation <- Balbina == 3
+forest_formation <- projectRaster(forest_formation, crs = new_crs)
+values(forest_formation)  = as.integer(values(forest_formation))
+check_landscape(forest_formation)
+```
+
+### 6x6 km landscapes: Calculating forest amount and number of islands
+```{r, output=FALSE}
+#| code-overflow: wrap
+landscapes6km <- vect("6km_paisagem.shp")
+names(landscapes6km)
+
+forest_cover <- landscapemetrics::sample_lsm(
+  forest_formation,
+  y = landscapes6km,
+  what = "lsm_c_pland",
+  directions = 8,
+  plot_id = landscapes6km$name
+)
+forest_cover <- subset(forest_cover, forest_cover$class == 1)  # Select only the presence of forest
+
+number_patches <- landscapemetrics::sample_lsm(forest_formation, 
+                                               y = landscapes6km,
+                                               what = "lsm_c_np",
+                                               directions = 8,
+                                               plot_id = landscapes6km$name)
+
+number_patches <- subset(number_patches, number_patches$class == 1)  # Select only the presence of patches
+
+number_patches$plot_id == forest_cover$plot_id
+metrics <- as.data.frame(cbind(number_patches$plot_id, number_patches$value,
+                               forest_cover$value))
+colnames(metrics) <- c("id", "number_patches", "forest_cover")
+
+metrics$type <- NA
+metrics$type[1:8] <- "#4575b4" #landscapes with few large patches
+metrics$type[9:12] <- "#fee090" #landscapes with several medium-sized patches
+metrics$type[13:20] <- "#d73027" #landscapes with many small patches
+
+comm <- read.csv("ants_comm.csv", header = T)
+comm <- comm[-201,]
+env <- read.csv("sampled_lands.csv", header = T)
+
+complete <- merge(comm, env, by = "point_ID")
+complete <- complete[,c(1,147:154,2:145)]
+
+# Calculating gamma diversity - species richness in the landscapes
+complete$landscape <- as.factor(complete$landscape)
+
+comm_landscape <- complete[,-c(1,5)] %>%
+  group_by(landscape) %>%
+  summarise(
+    across(c(number_patches, forest_cover, long, lat), first),
+    across(c(patch_area), mean), #mean patch size by landscape
+    across(
+      where(is.numeric) & 
+        !all_of(c("number_patches", "forest_cover", "long", "lat", "patch_area")),
+      sum
+    ),
+    .groups = "drop"
+  )
+
+comm_landscape[,c(7:150)] <- 
+  comm_landscape[,c(7:150)] %>% 
+  mutate(across(where(is.numeric), ~ ifelse(. > 0, 1, 0)))
+```
+
+### 6x6 km landscapes: Fitting the models
+```{r}
+#|code-overflow: wrap
+any(comm_landscape[, 7:150] > 1) #checking if any value is higher than 1 (presence)
+
+comm_landscape$richness <- rowSums(comm_landscape[,7:150]) # richness by landscape
+
+landscapes <- comm_landscape[,c(1:3,6,151)]
+colnames(landscapes)[4] <- "mean_patch_area"
+comm_landscape$number_patches6km <- as.numeric(metrics$number_patches)
+comm_landscape$forest_cover6km <- as.numeric(metrics$forest_cover)
+
+cor.test(comm_landscape$number_patches6km, comm_landscape$forest_cover6km) #cor = -0.28
+
+mod_global6km <- lm(richness ~ number_patches6km + forest_cover6km, data = comm_landscape, na.action = na.fail)
+summary(mod_global6km)
+
+models1 <- dredge(mod_global6km)
+models1
+```
+
+### 6X6 km landscapes: Plotting the graph
+```{r}
+#|code-overflow: wrap
+comm_landscape$cor <- NA
+comm_landscape$cor[1:8] <- "#4575b4"
+comm_landscape$cor[9:12] <- "#fee090"
+comm_landscape$cor[13:20] <- "#d73027"
+
+plot_6km <-
+  ggplot(data = comm_landscape,
+         mapping = aes(x = number_patches6km, y = richness)) +
+  
+  geom_smooth(method = "lm", fill = "#cccccc", alpha = 0.5,
+              color = "#252525") +
+  
+  labs(x = "Number of islands in the landscape (6 x 6 km)",
+       y = "Number of ant species") +
+  
+  geom_image(
+    data = tibble(number_patches6km = 120, richness = 51),
+    aes(image = "ant_1.png"), size = 0.08 
+  ) + # https://www.phylopic.org/images/3ae7cb42-8904-4775-87d6-968255913711/camponotus-vagus
+  
+  geom_point(size = 4, shape = 21,
+             color = "#252525", fill = comm_landscape$cor,
+             alpha = 0.7) +
+  
+  theme_bw(base_size = 10) +
+  
+  theme(panel.grid = element_blank(),
+        panel.border = element_rect(colour = "#252525"),
+        axis.title = element_text(colour = "#252525", face = "bold", size = 14),
+        axis.title.x = element_text(vjust = 0, size = 14),
+        axis.title.y = element_text(vjust = 2, size = 14),
+        axis.text = element_text(colour = "#252525"),
+        axis.ticks = element_line(colour = "#252525", size = 0.25))
+plot_6km
+```
+
+### 8x8 km landscapes: Calculating forest amount and number of islands
+```{r, output=FALSE}
+#| code-overflow: wrap
+landscapes8km <- vect("paisagem_da_paisagem.shp")
+names(landscapes8km)
+
+forest_cover <- landscapemetrics::sample_lsm(
+  forest_formation,
+  y = landscapes8km,
+  what = "lsm_c_pland",
+  directions = 8,
+  plot_id = landscapes8km$name
+)
+forest_cover <- subset(forest_cover, forest_cover$class == 1)  # Select only the presence of forest
+
+number_patches <- landscapemetrics::sample_lsm(forest_formation, 
+                                               y = landscapes8km,
+                                               what = "lsm_c_np",
+                                               directions = 8,
+                                               plot_id = landscapes8km$name)
+
+number_patches <- subset(number_patches, number_patches$class == 1)  # Select only the presence of patches
+
+number_patches$plot_id == forest_cover$plot_id
+metrics2 <- as.data.frame(cbind(number_patches$plot_id, number_patches$value,
+                               forest_cover$value))
+colnames(metrics2) <- c("id", "number_patches", "forest_cover")
+
+comm_landscape$number_patches8km <- as.numeric(metrics2$number_patches)
+comm_landscape$forest_cover8km <- as.numeric(metrics2$forest_cover)
+cor.test(comm_landscape$number_patches8km, comm_landscape$forest_cover8km)
+```
+
+### 8x8 km landscapes: Fitting the models
+```{r}
+#|code-overflow: wrap
+mod_global8km <- lm(richness ~ number_patches8km + forest_cover8km, data = comm_landscape, na.action = na.fail)
+summary(mod_global8km)
+models2 <- dredge(mod_global8km)
+models2
+```
+
+### 8X8 km landscapes: Plotting the graph
+```{r}
+#|code-overflow: wrap
+plot_8km <-
+  ggplot(data = comm_landscape,
+         mapping = aes(x = number_patches8km, y = richness)) +
+  
+  geom_smooth(method = "lm", fill = "#cccccc", alpha = 0.5,
+              color = "#252525") +
+  
+  labs(x = "Number of islands in the landscape (8 x 8 km)",
+       y = "Number of ant species") +
+  
+  geom_image(
+    data = tibble(number_patches8km = 190, richness = 51),
+    aes(image = "ant_1.png"), size = 0.08 
+  ) + # https://www.phylopic.org/images/3ae7cb42-8904-4775-87d6-968255913711/camponotus-vagus
+  
+  geom_point(size = 4, shape = 21,
+             color = "#252525", fill = comm_landscape$cor,
+             alpha = 0.7) +
+  
+  theme_bw(base_size = 10) +
+  
+  theme(panel.grid = element_blank(),
+        panel.border = element_rect(colour = "#252525"),
+        axis.title = element_text(colour = "#252525", face = "bold", size = 14),
+        axis.title.x = element_text(vjust = 0, size = 14),
+        axis.title.y = element_text(vjust = 2, size = 14),
+        axis.text = element_text(colour = "#252525"),
+        axis.ticks = element_line(colour = "#252525", size = 0.25))
+plot_8km
+```
+
+## Circular buffers surroundind the points
+### Loading packages and importing data
+```{r, output=FALSE}
+#| code-overflow: wrap
+data <- read.csv("ants_env.csv")
+comm <- read.csv("ants_comm.csv", row.names = 1)
+comm <- comm[-201,]
+richness <- as.data.frame(rowSums(ifelse(comm > 0, 1, 0)))
+richness$point_ID <- row.names(richness)
+colnames(richness)[1] <- "richness"
+
+new_crs <- CRS("+proj=utm +south +zone=21 +datum=WGS84 +units=m +no_defs")
+point_ants <- st_as_sf(data, coords = c("long_utm", "lat_utm"), crs = new_crs)
+point_ants$landscape <- as.factor(point_ants$landscape)
+
+forest <- raster("forest_formation.tif")
+
+any(comm > 1) #checking if any value is higher than 1 (presence)
+
+
+point_ants$richness <- NA
+point_ants$richness <-
+  richness$richness[match(point_ants$point_ID, richness$point_ID)]
+```
+
+### Calculating forest amount and number of islands inside the buffers
+```{r, output=FALSE}
+#| code-overflow: wrap
+buffers <- seq(150, 2000, by = 50)
+
+for (b in buffers) {
+  
+  result <- landscapemetrics::sample_lsm(
+    forest,
+    y = point_ants,
+    plot_id = point_ants$point_ID,
+    size = b,
+    shape = "circle",
+    what = "lsm_c_pland",
+    directions = 8
+  )
+  
+  # selecting only forest
+  result <- subset(result, class == 1)
+  result$value <- scale(result$value)
+
+  # colname
+  nome_coluna <- paste0("forest_cover_", b)
+  
+  # adding to the dataset
+  point_ants[[nome_coluna]] <- 
+    result$value[match(point_ants$point_ID, result$plot_id)]
+}
+
+
+for (b in buffers) {
+  result_2 <- landscapemetrics::sample_lsm(
+    forest,
+    y = point_ants,
+    plot_id = point_ants$point_ID,
+    size = b,
+    shape = "circle",
+    what = "lsm_c_np",
+    directions = 8
+  )
+  
+  result_2 <- subset(result_2, class == 1)
+  result_2$value <- scale(result_2$value)
+  
+  nome_coluna <- paste0("number_patches_", b)
+  
+  point_ants[[nome_coluna]] <- 
+    result_2$value[match(point_ants$point_ID, result_2$plot_id)]
+}
+```
+
+### Calculating multiple regressions with forest amount and number of patches on the same scale
+```{r}
+#|code-overflow: wrap
+
+reg_mult <- lapply(buffers, function(b) {
+  
+  forest_cover <- paste0("forest_cover_", b)
+  number_patch <- paste0("number_patches_", b)
+  
+  formula <- as.formula(
+    paste("richness ~", forest_cover, "+", number_patch)
+  )
+  
+  mod <- lm(formula, data = point_ants)
+  s <- summary(mod)
+  
+  coefs <- as.data.frame(coef(s))
+  coefs$term <- rownames(coefs)
+  
+  coefs$buffer <- b
+  coefs$r2 <- s$r.squared
+  coefs$r2_adj <- s$adj.r.squared
+  coefs$p_model <- pf(s$fstatistic[1], 
+                      s$fstatistic[2], 
+                      s$fstatistic[3], 
+                      lower.tail = FALSE)
+  
+  rownames(coefs) <- NULL
+  coefs
+})
+
+reg_mult_df <- bind_rows(reg_mult)
+
+print(reg_mult_df)
+```
+
+### Scale of effect: model with higher adjusted r2
+```{r}
+reg_mult_df[order(-reg_mult_df$r2_adj),][1,]  # 1550 m
+```
+
+### Plotting the graph
+```{r}
+#| code-overflow: wrap
+
+# Selecting only the results for number of islands
+reg_mult_df_2 <- reg_mult_df[grepl("^number_patches_", reg_mult_df$term), ]
+
+plot1 <-
+  ggplot(reg_mult_df_2 , aes(x = buffer, y = Estimate)) +
+  geom_errorbar(aes(ymin = Estimate - `Std. Error`, ymax = Estimate + `Std. Error`), color = 'black', width = 50) +
+  geom_point(size = 4) +
+  labs(x = "Buffer size (m)",
+       y = "Standardized coefficient (SE)",
+       title = "Fragmentation (number of  islands)") +
+  theme_bw(base_size = 16) +
+  theme(panel.grid = element_blank(),
+        panel.border = element_rect(colour = "black"),
+        plot.margin = margin(0.5, 1.5, 0.5, 1.5, "cm"))
+plot1
+```

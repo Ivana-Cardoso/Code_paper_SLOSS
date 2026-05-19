@@ -1,0 +1,78 @@
+# Beta diversity
+
+To investigate the effect of fragmentation on species turnover among the 10 sampling points within each landscape (beta diversity), we fitted a simple linear regression.
+
+## Loading packages and importing data
+```{r, output=FALSE}
+#| code-overflow: wrap
+library(ggplot2)
+library(dplyr)
+library(performance)
+library(ggimage)
+library(lmtest)
+
+data <- read.table("data_diversity_ants.txt", header = T)
+```
+
+## Calculating beta diversity
+
+Beta diversity was calculated using the multiplicative partition of diversity, as gamma diversity divided by mean alpha diversity across landscapes [(Baselga 2010)](https://www.jstor.org/stable/25680449?casa_token=jNxtX5AKKOQAAAAA:V38QupVYgCU7bsQQdmxG6waEc3W2tM9nK6L8pcdgFJRaEEGHo0nd4d7jHqopLLpNfemBRSb5UiZxSwsd6rkk8juUsgkhtjoQEBsQtWf6em4Am-WYHKE)
+
+```{r, output=FALSE}
+#| code-overflow: wrap
+
+data$beta = data$gamma/data$alpha
+```
+
+## Fitting the model
+```{r}
+#| code-overflow: wrap
+mod1 <- lm(beta~islands, data = data) # beta diversity ~ number of islands in the landscapes (fragmentation)
+summary(mod1) # r2-adj= 0.47, slope = 0.03, p < 0.01
+shapiro.test(mod1$residuals) # normal residuals(p=0.99)
+bptest(mod1) # homoscedasticity (p=0.09)
+```
+
+## Plotting the graph
+```{r}
+data$cor <- NA
+data$cor[1:8] <- "#4575b4"
+data$cor[9:12] <- "#fee090"
+data$cor[13:20] <- "#d73027"
+
+#|code-overflow: wrap
+plot_beta <- 
+  ggplot(data, aes(x = islands, y = beta)) +
+  
+  geom_smooth(method = "lm", fill = "#cccccc", alpha = 0.5,
+              color = "#252525") +
+  
+  geom_point(size = 4, shape = 21,
+             color = "#252525",
+             fill = data$cor,
+             alpha = 0.6) +
+  
+  labs(x = "Number of islands in the landscape",
+       y = "Beta diveristy in the landscape") +
+  
+  geom_image(
+    data = tibble(islands = 56, beta = 4.2),
+    aes(image = "ant_1.png"), size = 0.08 
+  ) + # https://www.phylopic.org/images/3ae7cb42-8904-4775-87d6-968255913711/camponotus-vagus
+  
+  theme_bw(base_size = 10) +
+  theme(panel.grid = element_blank(),
+        panel.border = element_rect(colour = "#252525"),
+        axis.title = element_text(colour = "#252525", face = "bold", size = 14),
+        axis.title.x = element_text(vjust = 0, size = 14),
+        axis.title.y = element_text(vjust = 2, size = 14),
+        axis.text = element_text(colour = "#252525"),
+        axis.ticks = element_line(colour = "#252525", size = 0.25))
+
+plot_beta
+
+ggsave(
+  plot = plot_beta,
+  filename = "beta_diversity_NumberPatches.png", dpi = 500,
+  width = 8 * 1.6, height = 8 * 1.7, units = 'cm')
+```
