@@ -14,7 +14,7 @@
     "href": "index.html#data-access",
     "title": "When is habitat fragmentation bad for biodiversity? The first empirical test of the SLOSS cube hypothesis",
     "section": "1.1 Data Access",
-    "text": "1.1 Data Access\nAll data used in the paper and in this code are available on [incluir o nome da plataforma e o url, quando disponível].",
+    "text": "1.1 Data Access\nAll data used in the paper and in this code are available on https://github.com/Ivana-Cardoso/Code_paper_SLOSS.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]

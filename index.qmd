@@ -34,7 +34,7 @@ This document is organised into sections, which you can navigate using the links
 
 ## Data Access
 
-All data used in the paper and in this code are available on https://github.com/Ivana-Cardoso/Code_paper_SLOSS.
+All data used in the paper and in this code are available on [https://github.com/Ivana-Cardoso/Code_paper_SLOSS](https://github.com/Ivana-Cardoso/Code_paper_SLOSS).
 
 ## Attribution
 
